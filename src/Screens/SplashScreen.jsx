@@ -12,7 +12,7 @@ import {
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
-      // navigation.replace("DashScreen");  
+      navigation.replace("DashScreen");  
     }, 2000);
   }, [navigation]);
 
