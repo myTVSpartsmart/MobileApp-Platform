@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import DashScreen from "../Screens/DashScreen";
 import "../service/apiInterceptor";
 import SplashScreen from "../Screens/SplashScreen";
+import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
 
 
 
@@ -24,7 +25,12 @@ const AuthorizedStack = () => {
         component={SplashScreen}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
-     
+      <Stack.Screen
+        name="SearchCustomer"
+        component={SearchCustomer}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+
     </Stack.Navigator>
   );
 };
