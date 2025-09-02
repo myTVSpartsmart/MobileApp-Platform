@@ -14,6 +14,7 @@ const SplashScreen = ({ navigation }) => {
     setTimeout(() => {
       navigation.replace("DashScreen");  
     }, 2000);
+    console.log("DashScreen")
   }, [navigation]);
 
   return (
