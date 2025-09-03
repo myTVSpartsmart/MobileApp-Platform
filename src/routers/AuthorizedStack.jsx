@@ -6,14 +6,16 @@ import SplashScreen from "../Screens/SplashScreen";
 import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
 
 
+import HomeScreen from "../Screens/HomeScreen";
+import TabNavigator from "../Navigation/TabNavigator";
 
 const AuthorizedStack = () => {
   const Stack = createNativeStackNavigator();
   return (
     <Stack.Navigator initialRouteName={"SplashScreen"}
-    screenOptions={{
-      animationEnabled: false,
-    }}
+      screenOptions={{
+        animationEnabled: false,
+      }}
     >
       <Stack.Screen
         name="DashScreen"
@@ -30,7 +32,16 @@ const AuthorizedStack = () => {
         component={SearchCustomer}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
-
+      <Stack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="TabNavigator"
+        component={TabNavigator}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
     </Stack.Navigator>
   );
 };
