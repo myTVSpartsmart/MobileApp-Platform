@@ -35,7 +35,7 @@ const SplashScreen = () => {
         // } else {
         //   navigation.navigate("LoginScreen");
         // }
-        navigation.navigate("DashScreen");
+        navigation.navigate("TabNavigator");
       } catch (error) {
         console.error("Error during splash setup: ", error);
       } finally {
