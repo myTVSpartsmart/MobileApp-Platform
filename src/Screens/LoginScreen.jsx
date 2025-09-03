@@ -35,9 +35,11 @@ const LoginScreen = ({ navigation }) => {
       // =====================
       if (email === DUMMY_USER.email && password === DUMMY_USER.password) {
         // Alert.alert("Success", "Logged in successfully with dummy data!");
+        console.log("Success");
         navigation.replace("TabNavigator"); // Example redirect
       } else {
         Alert.alert("Error", "Invalid email or password (dummy check)");
+        console.log("Failed");
       }
 
       // =====================
