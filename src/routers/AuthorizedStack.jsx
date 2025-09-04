@@ -5,6 +5,7 @@ import "../service/apiInterceptor";
 import SplashScreen from "../Screens/SplashScreen";
 import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
 
+import LoginScreen from "../Screens/LoginScreen";
 
 import HomeScreen from "../Screens/HomeScreen";
 import ForgotPassword from "../Screens/ForgotPassword";
@@ -43,9 +44,15 @@ const AuthorizedStack = () => {
         component={TabNavigator}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
+<<<<<<< HEAD
       <Stack.Screen
         name="ForgotPassword"
         component={ForgotPassword}
+=======
+       <Stack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+>>>>>>> 5d431026c49fd293ce80ce6155f1efd1f5c6f797
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>
