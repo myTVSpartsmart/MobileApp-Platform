@@ -10,31 +10,9 @@ import {
 } from "react-native";
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Fetch login status
-        const loggedIn = await getStorageData("is_Logged");
-        setIsLogged(loggedIn === "true"); // Ensure you handle the stored data format correctly
-
-        const alertResponse = await getAlert(data);
-
-        // Navigate based on alert and login status
-        // if (alertResponse?.success === true) {
-        //   navigation.navigate("AlertScreen", { alertData: alertResponse });
-        // } else if (loggedIn === "true") {
-        //   navigation.navigate("DashScreen");
-        // } else {
-        //   navigation.navigate("LoginScreen");
-        // }
-        navigation.navigate("TabNavigator");
-      } catch (error) {
-        console.error("Error during splash setup: ", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
+    setTimeout(() => {
+      navigation.replace("LoginScreen");
+    }, 2000);
   }, [navigation]);
   return (
     <View style={styles.container}>
