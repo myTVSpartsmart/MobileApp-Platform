@@ -1,3 +1,4 @@
+// This is to search the Customer Code to select them to create receipts
 import React, { useState } from "react";
 import {
   View,
@@ -16,7 +17,7 @@ const CustomerSearch = ({ navigation }) => {
       alert("Please enter a customer name or code");
       return;
     }
-    navigation.navigate("CreateReceipt2", {
+    navigation.navigate("DisplaySearch", {
       searchResults: [
         { id: "1", name: "SK AUTO PARTS", code: "EOTN0001B2 / KMS" },
       ],
