@@ -6,6 +6,7 @@ import SplashScreen from "../Screens/SplashScreen";
 import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
 
 import LoginScreen from "../Screens/LoginScreen";
+import PasswordVerification from "../Screens/PasswordVerification"
 
 import HomeScreen from "../Screens/HomeScreen";
 import TabNavigator from "../Navigation/TabNavigator";
@@ -46,6 +47,11 @@ const AuthorizedStack = () => {
        <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="PasswordVerification"
+        component={PasswordVerification}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>
