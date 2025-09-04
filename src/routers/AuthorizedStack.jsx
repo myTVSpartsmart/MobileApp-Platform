@@ -9,6 +9,7 @@ import LoginScreen from "../Screens/LoginScreen";
 
 import HomeScreen from "../Screens/HomeScreen";
 import TabNavigator from "../Navigation/TabNavigator";
+import CustomerSearch from "../Screens/CreateReceiptModule/CustomerSearch"
 
 const AuthorizedStack = () => {
   const Stack = createNativeStackNavigator();
@@ -46,6 +47,11 @@ const AuthorizedStack = () => {
        <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="CustomerSearch"
+        component={CustomerSearch}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>
