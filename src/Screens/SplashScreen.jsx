@@ -12,14 +12,8 @@ import {
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
-<<<<<<< HEAD
-      navigation.replace("ForgotPassword");
-    }, 2000);
-    console.log("DashScreen")
-=======
       navigation.replace("LoginScreen");
     }, 2000);
->>>>>>> 5d431026c49fd293ce80ce6155f1efd1f5c6f797
   }, [navigation]);
 // const SplashScreen = ({ navigation }) => {
 //   useEffect(() => {
