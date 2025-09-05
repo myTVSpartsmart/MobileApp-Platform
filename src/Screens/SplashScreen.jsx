@@ -8,14 +8,12 @@ import {
   Linking,
   ImageBackground,
 } from "react-native";
-
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
-      // navigation.replace("DashScreen");  
+      navigation.replace("LoginScreen");
     }, 2000);
   }, [navigation]);
-
   return (
     <View style={styles.container}>
       {/* Background Image (moved lower) */}
@@ -24,7 +22,6 @@ const SplashScreen = ({ navigation }) => {
         style={styles.backgroundImage}
         resizeMode="cover"
       />
-      
       <View style={styles.content}>
         {/* Top Logo */}
         <View style={styles.topContainer}>
@@ -35,7 +32,6 @@ const SplashScreen = ({ navigation }) => {
           />
           <Text style={styles.text}>Welcome Back!</Text>
         </View>
-
         {/* Illustration */}
         <View style={styles.middleContainer}>
           <Image
@@ -44,7 +40,6 @@ const SplashScreen = ({ navigation }) => {
             resizeMode="contain"
           />
         </View>
-
         {/* Footer */}
         <View style={styles.footerContainer}>
           <Text style={styles.supportText}>
@@ -60,13 +55,11 @@ const SplashScreen = ({ navigation }) => {
     </View>
   );
 };
-
 export default SplashScreen;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    position: 'relative', // Allow for absolute positioning of background    
+    position: 'relative', // Allow for absolute positioning of background
   },
   backgroundImage: {
     position: 'absolute',
