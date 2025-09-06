@@ -43,7 +43,14 @@ import PassHide_Image from "../assets/images/pass_hide.png";
 import WareHousePNG_Image from "../assets/images/SkuWarehouse.png";
 import WhiteCalender from "../assets/images/WhiteCalender.png";
 import WhiteClose from "../assets/images/WhiteClose.png";
-
+import TopimageforHomepage from "../assets/images/TopimageforHomepage.png";
+import QuickMenuBackground from "../assets/images/QuickMenuBackground.png";
+import ViewHistoryIcon from "../assets/images/ViewHistoryIcon.png";
+import Calender from "../assets/images/Calender.png";
+import createordericon from "../assets/images/createordericon.png";
+import NewPlan from "../assets/images/NewPlan.png";
+import Visitplan from "../assets/images/Visitplan.png";
+import ViewPlan from "../assets/images/ViewPlan.png";
 
 export {
   Login_Bg,
@@ -89,6 +96,11 @@ export {
   PassHide_Image,
   WareHousePNG_Image,
   WhiteCalender,
-  WhiteClose
+  WhiteClose,
+  TopimageforHomepage,
+  QuickMenuBackground,
+  ViewHistoryIcon,
+  Calender,createordericon,Visitplan,ViewPlan,NewPlan,
+
 };
 
