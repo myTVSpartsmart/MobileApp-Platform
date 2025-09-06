@@ -9,7 +9,7 @@ import LoginScreen from "../Screens/LoginScreen";
 
 import HomeScreen from "../Screens/HomeScreen";
 import TabNavigator from "../Navigation/TabNavigator";
-
+import HeaderIcons from '../Components/HeaderIcons'; 
 const AuthorizedStack = () => {
   const Stack = createNativeStackNavigator();
   return (
@@ -46,6 +46,11 @@ const AuthorizedStack = () => {
        <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+       <Stack.Screen
+        name="HeaderIcons"
+        component={HeaderIcons}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>

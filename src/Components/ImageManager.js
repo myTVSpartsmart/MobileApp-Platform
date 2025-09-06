@@ -48,6 +48,9 @@ import QuickMenuBackground from "../assets/images/QuickMenuBackground.png";
 import ViewHistoryIcon from "../assets/images/ViewHistoryIcon.png";
 import Calender from "../assets/images/Calender.png";
 import createordericon from "../assets/images/createordericon.png";
+import DueToday from "../assets/images/DueToday.png";
+import CreateReceipt from "../assets/images/CreateReceipt.png";
+import ViewReceipt from "../assets/images/ViewReceipt.png";
 export {
   Login_Bg,
   Mi_Image,
@@ -96,7 +99,7 @@ export {
   TopimageforHomepage,
   QuickMenuBackground,
   ViewHistoryIcon,
-  Calender,createordericon
+  Calender,createordericon,DueToday,CreateReceipt,ViewReceipt
 
 };
 
