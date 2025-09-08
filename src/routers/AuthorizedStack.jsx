@@ -6,7 +6,7 @@ import SplashScreen from "../Screens/SplashScreen";
 import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
 
 import LoginScreen from "../Screens/LoginScreen";
-
+import DDPayment from "../Screens/CreateReceiptModule/DDPayment"
 import HomeScreen from "../Screens/HomeScreen";
 import TabNavigator from "../Navigation/TabNavigator";
 
@@ -46,6 +46,11 @@ const AuthorizedStack = () => {
        <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="DDPayment"
+        component={DDPayment}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>
