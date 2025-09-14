@@ -48,6 +48,7 @@ import QuickMenuBackground from "../assets/images/QuickMenuBackground.png";
 import ViewHistoryIcon from "../assets/images/ViewHistoryIcon.png";
 import Calender from "../assets/images/Calender.png";
 import createordericon from "../assets/images/createordericon.png";
+import Profileimg from "../assets/images/Profileimg.png";
 export {
   Login_Bg,
   Mi_Image,
@@ -96,7 +97,7 @@ export {
   TopimageforHomepage,
   QuickMenuBackground,
   ViewHistoryIcon,
-  Calender,createordericon
+  Calender,createordericon,Profileimg
 
 };
 

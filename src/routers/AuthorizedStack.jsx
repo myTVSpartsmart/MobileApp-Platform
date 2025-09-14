@@ -8,8 +8,12 @@ import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
 import LoginScreen from "../Screens/LoginScreen";
 
 import HomeScreen from "../Screens/HomeScreen";
+import ViewHistoryScreen from "../Screens/ViewHistoryScreen";
+import OrderDetailsScreen from "../Screens/OrderDetailsScreen";
 import TabNavigator from "../Navigation/TabNavigator";
-
+import ProfileScreen from "../Screens/ProfileScreen";
+import SupportScreen from "../Screens/SupportScreen";
+import ChangePasswordScreen from "../Screens/ChangePasswordScreen";
 const AuthorizedStack = () => {
   const Stack = createNativeStackNavigator();
   return (
@@ -46,6 +50,31 @@ const AuthorizedStack = () => {
        <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+       <Stack.Screen
+        name="ViewHistoryScreen"
+        component={ViewHistoryScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+       <Stack.Screen
+        name="OrderDetailsScreen"
+        component={OrderDetailsScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+       <Stack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="SupportScreen"
+        component={SupportScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ChangePasswordScreen"
+        component={ChangePasswordScreen}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>
