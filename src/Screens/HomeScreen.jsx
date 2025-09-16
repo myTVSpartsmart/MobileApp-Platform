@@ -88,30 +88,7 @@ const HomeScreen = () => {
       height: 400,
       onPress: () => {},
     },
-    {
-      label: "View History",
-      isImage: true,
-      icon: ViewHistoryIcon,
-      width: 100,
-      height: 200,
-      onPress: () => navigation.navigate("ViewHistoryScreen"),
-    },
-    {
-      label: "Create Orders",
-      isImage: true,
-      icon: createordericon,
-      width: 90,
-      height: 100,
-      onPress: () => {},
-    },
-    {
-      label: "Receipt",
-      isImage: true,
-      icon: Calender,
-      width: 150,
-      height: 400,
-      onPress: () => {},
-    },
+    
   ];
 
   return (
