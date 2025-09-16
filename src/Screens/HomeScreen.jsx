@@ -22,12 +22,14 @@ import {
 } from "../Components/ImageManager";
 import HeaderIcons from "../Components/HeaderIcons";
 import { useNavigation } from "@react-navigation/native";
-
+import ProfileScreen from "../Screens/ProfileScreen";
+import SupportScreen from "../Screens/SupportScreen";
 const { height } = Dimensions.get("window");
 
 const HomeScreen = () => {
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState("");
+  const navigation = useNavigation();
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -86,6 +88,30 @@ const HomeScreen = () => {
       height: 400,
       onPress: () => {},
     },
+    {
+      label: "View History",
+      isImage: true,
+      icon: ViewHistoryIcon,
+      width: 100,
+      height: 200,
+      onPress: () => navigation.navigate("ViewHistoryScreen"),
+    },
+    {
+      label: "Create Orders",
+      isImage: true,
+      icon: createordericon,
+      width: 90,
+      height: 100,
+      onPress: () => {},
+    },
+    {
+      label: "Receipt",
+      isImage: true,
+      icon: Calender,
+      width: 150,
+      height: 400,
+      onPress: () => {},
+    },
   ];
 
   return (
@@ -111,7 +137,7 @@ const HomeScreen = () => {
 
             <HeaderIcons
               onCartPress={() => alert("Cart clicked")}
-              onProfilePress={() => alert("Profile clicked")}
+              onProfilePress={() => navigation.navigate("ProfileScreen")}
               colors="white"
             />
           </View>

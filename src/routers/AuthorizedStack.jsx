@@ -16,6 +16,9 @@ import TabNavigator from "../Navigation/TabNavigator";
 import HeaderIcons from '../Components/HeaderIcons'; // Adjust path if needed
 
 
+import ProfileScreen from "../Screens/ProfileScreen";
+import SupportScreen from "../Screens/SupportScreen";
+import ChangePasswordScreen from "../Screens/ChangePasswordScreen";
 const AuthorizedStack = () => {
   const Stack = createNativeStackNavigator();
   return (
@@ -59,17 +62,7 @@ const AuthorizedStack = () => {
         component={LoginScreen}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
-      <Stack.Screen
-        name="PasswordVerification"
-        component={PasswordVerification}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="HeaderIcons"
-        component={HeaderIcons}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
+       <Stack.Screen
         name="ViewHistoryScreen"
         component={ViewHistoryScreen}
         options={{ headerShown: false, animation: 'slide_from_right' }}
@@ -77,6 +70,21 @@ const AuthorizedStack = () => {
        <Stack.Screen
         name="OrderDetailsScreen"
         component={OrderDetailsScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+       <Stack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="SupportScreen"
+        component={SupportScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ChangePasswordScreen"
+        component={ChangePasswordScreen}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>

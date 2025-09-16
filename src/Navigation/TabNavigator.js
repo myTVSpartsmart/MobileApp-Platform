@@ -7,6 +7,9 @@ import ReceiptScreen from '../Screens/ReceiptScreen';
 import BeatScreen from '../Screens/BeatScreen';
 import ViewHistoryScreen from '../Screens/ViewHistoryScreen';
 import OrderDetailsScreen from '../Screens/OrderDetailsScreen';
+import ProfileScreen from '../Screens/ProfileScreen';
+import SupportScreen from "../Screens/SupportScreen";
+import ChangePasswordScreen from "../Screens/ChangePasswordScreen";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab = createBottomTabNavigator();
@@ -18,6 +21,9 @@ const HomeStack = () => (
     <Stack.Screen name="HomeScreen" component={HomeScreen} />
     <Stack.Screen name="ViewHistoryScreen" component={ViewHistoryScreen} />
     <Stack.Screen name="OrderDetailsScreen" component={OrderDetailsScreen} />
+    <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+    <Stack.Screen name="SupportScreen" component={SupportScreen} />
+    <Stack.Screen name="ChangePasswordScreen" component={ChangePasswordScreen} />
   </Stack.Navigator>
 );
 
