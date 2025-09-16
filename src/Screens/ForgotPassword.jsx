@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
+  Alert,
 } from "react-native";
 
 const ForgotPasswordScreen = ({ navigation }) => {
@@ -22,19 +23,26 @@ const ForgotPasswordScreen = ({ navigation }) => {
 
   const handleResetPassword = async () => {
     if (!email || !password || !confirmPassword) {
-      return; // silently fail
+      Alert.alert("Missing Information", "Please fill in all fields.");
+      return;
     }
     if (!validateEmail(email)) {
+      Alert.alert("Invalid Email", "Please enter a valid email address.");
       return;
     }
     if (password.length < 6) {
+      Alert.alert(
+        "Weak Password",
+        "Password must be at least 6 characters long."
+      );
       return;
     }
     if (password !== confirmPassword) {
+      Alert.alert("Password Mismatch", "Passwords do not match.");
       return;
     }
 
-    // 🔹 Navigate directly instead of showing popup
+    // ✅ All validations passed → navigate
     navigation.navigate("PasswordVerification");
 
     /*
@@ -56,9 +64,10 @@ const ForgotPasswordScreen = ({ navigation }) => {
       if (response.ok) {
         navigation.navigate("PasswordVerification");
       } else {
-        console.error("Error:", data.message || "Something went wrong");
+        Alert.alert("Error", data.message || "Something went wrong");
       }
     } catch (error) {
+      Alert.alert("Network Error", "Failed to connect to server");
       console.error("Failed to connect to server", error);
     }
     */
@@ -118,10 +127,10 @@ const ForgotPasswordScreen = ({ navigation }) => {
 
           {/* Reset Button */}
           <TouchableOpacity
-            style={styles.signInButton}
+            style={styles.resetButton}
             onPress={handleResetPassword}
           >
-            <Text style={styles.signInText}>Sign In</Text>
+            <Text style={styles.resetText}>Reset Password</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -180,17 +189,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#000",
   },
-  signInButton: {
+  resetButton: {
     backgroundColor: "#F36F21",
     borderRadius: 6,
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 14,
     marginTop: 30,
-    width: "50%",
+    width: "60%",
     alignSelf: "center",
   },
-  signInText: {
+  resetText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "600",
