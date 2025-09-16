@@ -19,6 +19,8 @@ import HeaderIcons from "../Components/HeaderIcons";
 import ProfileScreen from "../Screens/ProfileScreen";
 import SupportScreen from "../Screens/SupportScreen";
 import ChangePasswordScreen from "../Screens/ChangePasswordScreen";
+import DisplayInvoices from "../Screens/CreateReceiptModule/DisplayInvoices";
+
 const AuthorizedStack = () => {
   const Stack = createNativeStackNavigator();
   return (
@@ -105,6 +107,11 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="DisplayCustomer"
         component={DisplayCustomer}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="DisplayInvoices"
+        component={DisplayInvoices}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>
