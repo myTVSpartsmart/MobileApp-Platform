@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -7,19 +7,19 @@ import {
   StyleSheet,
   Linking,
   Alert,
-} from "react-native";
+} from 'react-native';
 // Example dummy credentials
 const DUMMY_USER = {
-  email: "testuser@gmail.com",
-  password: "password123",
+  email: 'testuser@gmail.com',
+  password: 'password123',
 };
 const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const handleSignIn = async () => {
     if (!email || !password) {
-      Alert.alert("Error", "Please enter both email and password");
+      Alert.alert('Error', 'Please enter both email and password');
       return;
     }
     setLoading(true);
@@ -29,11 +29,11 @@ const LoginScreen = ({ navigation }) => {
       // =====================
       if (email === DUMMY_USER.email && password === DUMMY_USER.password) {
         // Alert.alert("Success", "Logged in successfully with dummy data!");
-        console.log("Success");
-        navigation.replace("TabNavigator"); // Example redirect
+        console.log('Success');
+        navigation.replace('TabNavigator'); // Example redirect
       } else {
-        Alert.alert("Error", "Invalid email or password (dummy check)");
-        console.log("Failed");
+        Alert.alert('Error', 'Invalid email or password (dummy check)');
+        console.log('Failed');
       }
       // =====================
       // :small_blue_diamond: REAL API LOGIN (uncomment when ready)
@@ -56,7 +56,7 @@ const LoginScreen = ({ navigation }) => {
       }
       */
     } catch (error) {
-      Alert.alert("Error", "Something went wrong. Please try again later.");
+      Alert.alert('Error', 'Something went wrong. Please try again later.');
       console.error(error);
     } finally {
       setLoading(false);
@@ -95,10 +95,13 @@ const LoginScreen = ({ navigation }) => {
             onChangeText={setPassword}
           />
           {/* Forgot Password */}
-          <TouchableOpacity style={styles.forgotPasswordContainer}
-          onPress={() => navigation.navigate("ForgotPassword")}>
+          <TouchableOpacity
+            style={styles.forgotPasswordContainer}
+            onPress={() => navigation.navigate('ForgotPassword')}
+          >
             <Text style={styles.forgotPassword}>Forgot Password?</Text>
           </TouchableOpacity>
+
           {/* Sign In Button */}
           <TouchableOpacity
             style={styles.signInButton}
@@ -106,7 +109,7 @@ const LoginScreen = ({ navigation }) => {
             disabled={loading}
           >
             <Text style={styles.signInText}>
-              {loading ? "Signing In..." : "Sign In"}
+              {loading ? 'Signing In...' : 'Sign In'}
             </Text>
           </TouchableOpacity>
         </View>
@@ -117,7 +120,7 @@ const LoginScreen = ({ navigation }) => {
           Get in touch with us if any support.
         </Text>
         <TouchableOpacity
-          onPress={() => Linking.openURL("mailto:helpdesk.mobility@tvs.in")}
+          onPress={() => Linking.openURL('mailto:helpdesk.mobility@tvs.in')}
         >
           <Text style={styles.email}>helpdesk.mobility@tvs.in</Text>
         </TouchableOpacity>
@@ -129,80 +132,80 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
   },
   content: {
     flex: 1,
-    justifyContent: "center", // centers vertically
+    justifyContent: 'center', // centers vertically
     paddingHorizontal: 24,
   },
   headerContainer: {
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 40,
   },
   title: {
     fontSize: 24,
-    fontWeight: "700",
-    color: "#000",
+    fontWeight: '700',
+    color: '#000',
   },
   subtitle: {
     fontSize: 16,
-    color: "#666",
+    color: '#666',
     marginTop: 6,
-    textAlign: "center",
+    textAlign: 'center',
   },
   formContainer: {},
   label: {
     fontSize: 16,
-    fontWeight: "600",
-    color: "#000",
+    fontWeight: '600',
+    color: '#000',
     marginBottom: 6,
   },
   input: {
-    backgroundColor: "#F7F6F2",
+    backgroundColor: '#F7F6F2',
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 12,
     fontSize: 16,
-    color: "#000",
+    color: '#000',
   },
   forgotPasswordContainer: {
-    alignItems: "flex-end",
+    alignItems: 'flex-end',
     marginTop: 10,
   },
   forgotPassword: {
     fontSize: 13,
-    color: "#007AFF",
+    color: '#007AFF',
   },
   signInButton: {
-    backgroundColor: "#F36F21",
+    backgroundColor: '#F36F21',
     borderRadius: 6,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingVertical: 14,
     marginTop: 30,
-    width: "50%",
-    alignSelf: "center",
+    width: '50%',
+    alignSelf: 'center',
   },
   signInText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
   },
   footerContainer: {
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 120,
     paddingHorizontal: 24,
   },
   supportText: {
     fontSize: 16,
-    color: "#666",
+    color: '#666',
     marginBottom: 5,
-    textAlign: "center",
+    textAlign: 'center',
   },
   email: {
     fontSize: 16,
-    color: "#007AFF",
-    textDecorationLine: "underline",
+    color: '#007AFF',
+    textDecorationLine: 'underline',
   },
 });
