@@ -2,11 +2,7 @@ import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-<<<<<<< HEAD
-const HeaderIcons = ({ onCartPress, onProfilePress ,colors}) => {
-=======
 const HeaderIcons = ({ onCartPress, onProfilePress, colors }) => {
->>>>>>> feature/MobileApp-Platform-54
   return (
     <View style={styles.iconContainer}>
       <TouchableOpacity onPress={onCartPress}>

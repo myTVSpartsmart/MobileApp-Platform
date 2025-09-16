@@ -48,7 +48,6 @@ import QuickMenuBackground from "../assets/images/QuickMenuBackground.png";
 import ViewHistoryIcon from "../assets/images/ViewHistoryIcon.png";
 import Calender from "../assets/images/Calender.png";
 import createordericon from "../assets/images/createordericon.png";
-<<<<<<< HEAD
 import DueToday from "../assets/images/DueToday.png";
 import CreateReceipt from "../assets/images/CreateReceipt.png";
 import ViewReceipt from "../assets/images/ViewReceipt.png";
@@ -56,9 +55,7 @@ import NewPlan from "../assets/images/NewPlan.png";
 import Visitplan from "../assets/images/Visitplan.png";
 import ViewPlan from "../assets/images/ViewPlan.png";
 
-=======
 import Profileimg from "../assets/images/Profileimg.png";
->>>>>>> feature/MobileApp-Platform-54
 export {
   Login_Bg,
   Mi_Image,
@@ -107,12 +104,8 @@ export {
   TopimageforHomepage,
   QuickMenuBackground,
   ViewHistoryIcon,
-<<<<<<< HEAD
   Calender,DueToday,CreateReceipt,ViewReceipt
-  ,createordericon,Visitplan,ViewPlan,NewPlan,
-=======
-  Calender,createordericon,Profileimg
->>>>>>> feature/MobileApp-Platform-54
+  ,createordericon,Visitplan,ViewPlan,NewPlan,Profileimg
 
 };
 

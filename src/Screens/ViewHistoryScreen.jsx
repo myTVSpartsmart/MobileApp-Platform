@@ -185,8 +185,4 @@ const styles = StyleSheet.create({
   orderRight: { alignItems: 'flex-end' },
 });
 
-<<<<<<< HEAD
 export default ViewHistoryScreen;
-=======
-export default ViewHistoryScreen;
->>>>>>> feature/MobileApp-Platform-54

@@ -30,7 +30,7 @@ const HomeScreen = () => {
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState("");
   const navigation = useNavigation();
-  const navigation = useNavigation();
+ 
 
   useEffect(() => {
     setTimeout(() => {
