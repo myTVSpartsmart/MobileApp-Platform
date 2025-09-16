@@ -103,7 +103,7 @@ export {
   TopimageforHomepage,
   QuickMenuBackground,
   ViewHistoryIcon,
-  Calender,createordericon,DueToday,CreateReceipt,ViewReceipt
+  Calender,DueToday,CreateReceipt,ViewReceipt
   ,createordericon,Visitplan,ViewPlan,NewPlan,
 
 };
