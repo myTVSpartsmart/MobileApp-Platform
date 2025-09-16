@@ -7,7 +7,7 @@ import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
 
 import LoginScreen from "../Screens/LoginScreen";
 import PasswordVerification from "../Screens/PasswordVerification"
-
+import DisplayCustomer from "../Screens/CreateReceiptModule/DisplayCustomer";
 import HomeScreen from "../Screens/HomeScreen";
 import ForgotPassword from "../Screens/ForgotPassword";
 import ViewHistoryScreen from "../Screens/ViewHistoryScreen";
@@ -100,6 +100,11 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="HeaderIcons"
         component={HeaderIcons}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="DisplayCustomer"
+        component={DisplayCustomer}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>
