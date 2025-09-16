@@ -11,6 +11,8 @@ import PasswordVerification from "../Screens/PasswordVerification"
 import HomeScreen from "../Screens/HomeScreen";
 import ForgotPassword from "../Screens/ForgotPassword";
 import TabNavigator from "../Navigation/TabNavigator";
+import HeaderIcons from '../Components/HeaderIcons'; // Adjust path if needed
+
 
 const AuthorizedStack = () => {
   const Stack = createNativeStackNavigator();
@@ -50,7 +52,7 @@ const AuthorizedStack = () => {
         component={ForgotPassword}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
         options={{ headerShown: false, animation: 'slide_from_right' }}
@@ -58,6 +60,11 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="PasswordVerification"
         component={PasswordVerification}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="HeaderIcons"
+        component={HeaderIcons}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>
