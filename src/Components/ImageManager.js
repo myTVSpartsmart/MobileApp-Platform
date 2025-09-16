@@ -51,6 +51,10 @@ import createordericon from "../assets/images/createordericon.png";
 import DueToday from "../assets/images/DueToday.png";
 import CreateReceipt from "../assets/images/CreateReceipt.png";
 import ViewReceipt from "../assets/images/ViewReceipt.png";
+import NewPlan from "../assets/images/NewPlan.png";
+import Visitplan from "../assets/images/Visitplan.png";
+import ViewPlan from "../assets/images/ViewPlan.png";
+
 export {
   Login_Bg,
   Mi_Image,
@@ -100,6 +104,7 @@ export {
   QuickMenuBackground,
   ViewHistoryIcon,
   Calender,createordericon,DueToday,CreateReceipt,ViewReceipt
+  ,createordericon,Visitplan,ViewPlan,NewPlan,
 
 };
 
