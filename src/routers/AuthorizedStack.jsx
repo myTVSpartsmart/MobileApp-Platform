@@ -8,6 +8,7 @@ import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
 import LoginScreen from "../Screens/LoginScreen";
 import RepeatOn from "../Screens/BeatPlanModule/RepeatOn"
 import HomeScreen from "../Screens/HomeScreen";
+import ForgotPassword from "../Screens/ForgotPassword";
 import TabNavigator from "../Navigation/TabNavigator";
 
 const AuthorizedStack = () => {
@@ -41,6 +42,11 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="TabNavigator"
         component={TabNavigator}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ForgotPassword"
+        component={ForgotPassword}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
        <Stack.Screen
