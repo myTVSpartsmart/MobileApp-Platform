@@ -10,6 +10,8 @@ import PasswordVerification from "../Screens/PasswordVerification"
 
 import HomeScreen from "../Screens/HomeScreen";
 import ForgotPassword from "../Screens/ForgotPassword";
+import ViewHistoryScreen from "../Screens/ViewHistoryScreen";
+import OrderDetailsScreen from "../Screens/OrderDetailsScreen";
 import TabNavigator from "../Navigation/TabNavigator";
 import HeaderIcons from '../Components/HeaderIcons'; // Adjust path if needed
 
@@ -65,6 +67,16 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="HeaderIcons"
         component={HeaderIcons}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ViewHistoryScreen"
+        component={ViewHistoryScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+       <Stack.Screen
+        name="OrderDetailsScreen"
+        component={OrderDetailsScreen}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>

@@ -6,12 +6,10 @@ import {
   Image,
   ImageBackground,
   SafeAreaView,
-  ScrollView,
   Dimensions,
   TouchableOpacity,
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import Icon from "react-native-vector-icons/MaterialIcons";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 
@@ -22,13 +20,15 @@ import {
   Calender,
   createordericon,
 } from "../Components/ImageManager";
-import HeaderIcons from '../Components/HeaderIcons';
+import HeaderIcons from "../Components/HeaderIcons";
+import { useNavigation } from "@react-navigation/native";
 
-const { width, height } = Dimensions.get("window");
+const { height } = Dimensions.get("window");
 
 const HomeScreen = () => {
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState("");
+  const navigation = useNavigation();
 
   useEffect(() => {
     setTimeout(() => {
@@ -61,14 +61,32 @@ const HomeScreen = () => {
     </View>
   );
 
-
   const quickMenuItems = [
-    { label: "View History", isImage: true, icon: ViewHistoryIcon, width: 100, height: 200 },
-    { label: "Create Orders", isImage: true, icon: createordericon, width: 90, height: 100, },
-    { label: "Receipt", isImage: true, icon: Calender, width: 150, height: 400 },
+    {
+      label: "View History",
+      isImage: true,
+      icon: ViewHistoryIcon,
+      width: 100,
+      height: 200,
+      onPress: () => navigation.navigate("ViewHistoryScreen"),
+    },
+    {
+      label: "Create Orders",
+      isImage: true,
+      icon: createordericon,
+      width: 90,
+      height: 100,
+      onPress: () => {},
+    },
+    {
+      label: "Receipt",
+      isImage: true,
+      icon: Calender,
+      width: 150,
+      height: 400,
+      onPress: () => {},
+    },
   ];
-
-
 
   return (
     <SafeAreaView style={styles.container}>
@@ -90,11 +108,11 @@ const HomeScreen = () => {
               <Text style={styles.greetingText}>Hello, {name}!</Text>
               <Text style={styles.subText}>Have a nice day</Text>
             </View>
-          
+
             <HeaderIcons
               onCartPress={() => alert("Cart clicked")}
               onProfilePress={() => alert("Profile clicked")}
-              colors='white'
+              colors="white"
             />
           </View>
         </LinearGradient>
@@ -136,7 +154,6 @@ const HomeScreen = () => {
             <View>
               <Text style={styles.monthlyTitle}>Monthly Order Value</Text>
               <Text style={styles.monthlyAmount}>₹ 9,54,808</Text>
-
             </View>
             <View style={{ marginLeft: 20 }}>
               <AnimatedCircularProgress
@@ -146,10 +163,13 @@ const HomeScreen = () => {
                 tintColor="#09E018"
                 backgroundColor="#eee"
               >
-                {fill => <Text style={styles.progressText}>{`${Math.round(fill)}%`}</Text>}
+                {(fill) => (
+                  <Text style={styles.progressText}>
+                    {`${Math.round(fill)}%`}
+                  </Text>
+                )}
               </AnimatedCircularProgress>
             </View>
-
           </View>
 
           <View style={styles.newCustomersCard}>
@@ -165,8 +185,18 @@ const HomeScreen = () => {
               <Text style={styles.monthlyAmount}>₹ 15,608</Text>
             </View>
             <View style={{ marginLeft: 40 }}>
-              <AnimatedCircularProgress size={50} width={4} fill={65} tintColor="#8309E0" backgroundColor="#eee">
-                {fill => <Text style={styles.progressText}>{`${Math.round(fill)}%`}</Text>}
+              <AnimatedCircularProgress
+                size={50}
+                width={4}
+                fill={65}
+                tintColor="#8309E0"
+                backgroundColor="#eee"
+              >
+                {(fill) => (
+                  <Text style={styles.progressText}>
+                    {`${Math.round(fill)}%`}
+                  </Text>
+                )}
               </AnimatedCircularProgress>
             </View>
           </View>
@@ -181,26 +211,25 @@ const HomeScreen = () => {
         <Text style={styles.Quickmenu}>Quick Menu</Text>
         <View style={styles.quickMenuRow}>
           {quickMenuItems.map((item, index) => (
-            <TouchableOpacity key={index} style={styles.quickMenuItem}>
+            <TouchableOpacity
+              key={index}
+              style={styles.quickMenuItem}
+              onPress={item.onPress}
+            >
               <ImageBackground
                 source={QuickMenuBackground}
                 style={styles.quickMenuBackground}
                 imageStyle={{ borderRadius: 20 }}
               >
                 <View style={styles.quickMenuIconContainer}>
-                  {item.isImage ? (
-                    <Image
-                      source={item.icon}
-                      style={{ width: item.width, height: item.height, resizeMode: "contain" }}
-                    />
-
-                  ) : (
-                    <MaterialCommunityIcons
-                      name={item.icon}
-                      size={32}
-                      color="#7C6AF2"
-                    />
-                  )}
+                  <Image
+                    source={item.icon}
+                    style={{
+                      width: item.width,
+                      height: item.height,
+                      resizeMode: "contain",
+                    }}
+                  />
                 </View>
                 <View style={styles.quickMenuLabelBox}>
                   <Text style={styles.quickMenuLabel}>{item.label}</Text>
@@ -210,10 +239,11 @@ const HomeScreen = () => {
           ))}
         </View>
       </View>
-
     </SafeAreaView>
   );
 };
+
+
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#FFFFFF" },
@@ -346,6 +376,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     paddingVertical: 20,
     paddingLeft: '10'
+
   },
   newCustomerNumber: {
     fontSize: 28,

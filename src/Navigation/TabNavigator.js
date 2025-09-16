@@ -1,12 +1,25 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../Screens/HomeScreen';
 import SalesScreen from '../Screens/SalesScreen';
 import ReceiptScreen from '../Screens/ReceiptScreen';
 import BeatScreen from '../Screens/BeatScreen';
+import ViewHistoryScreen from '../Screens/ViewHistoryScreen';
+import OrderDetailsScreen from '../Screens/OrderDetailsScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+// 📌 Stack inside Home Tab
+const HomeStack = () => (
+  <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Screen name="HomeScreen" component={HomeScreen} />
+    <Stack.Screen name="ViewHistoryScreen" component={ViewHistoryScreen} />
+    <Stack.Screen name="OrderDetailsScreen" component={OrderDetailsScreen} />
+  </Stack.Navigator>
+);
 
 const TabNavigator = () => {
   return (
@@ -27,24 +40,22 @@ const TabNavigator = () => {
         },
         tabBarIcon: ({ color }) => {
           let iconName;
-
           switch (route.name) {
             case 'Home':
-              iconName = 'home-outline'; // 🏠
+              iconName = 'home-outline';
               break;
             case 'Sales':
-              iconName = 'cart-outline'; // 🛒
+              iconName = 'cart-outline';
               break;
             case 'Receipt':
-              iconName = 'file-document-outline'; // 📄
+              iconName = 'file-document-outline';
               break;
             case 'Beat':
-              iconName = 'map-marker-alert-outline'; // 📍
+              iconName = 'map-marker-alert-outline';
               break;
             default:
               iconName = 'home-outline';
           }
-
           return (
             <MaterialCommunityIcons
               name={iconName}
@@ -55,7 +66,7 @@ const TabNavigator = () => {
         },
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Home" component={HomeStack} />
       <Tab.Screen name="Sales" component={SalesScreen} />
       <Tab.Screen name="Receipt" component={ReceiptScreen} />
       <Tab.Screen name="Beat" component={BeatScreen} />
