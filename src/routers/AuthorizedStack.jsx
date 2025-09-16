@@ -13,8 +13,8 @@ import ForgotPassword from "../Screens/ForgotPassword";
 import ViewHistoryScreen from "../Screens/ViewHistoryScreen";
 import OrderDetailsScreen from "../Screens/OrderDetailsScreen";
 import TabNavigator from "../Navigation/TabNavigator";
-import HeaderIcons from '../Components/HeaderIcons'; // Adjust path if needed
-
+import CustomerSearch from "../Screens/CreateReceiptModule/CustomerSearch"
+import HeaderIcons from "../Components/HeaderIcons";
 
 import ProfileScreen from "../Screens/ProfileScreen";
 import SupportScreen from "../Screens/SupportScreen";
@@ -62,6 +62,11 @@ const AuthorizedStack = () => {
         component={LoginScreen}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
+      <Stack.Screen
+        name="CustomerSearch"
+        component={CustomerSearch}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
        <Stack.Screen
         name="ViewHistoryScreen"
         component={ViewHistoryScreen}
@@ -85,6 +90,16 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="ChangePasswordScreen"
         component={ChangePasswordScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="PasswordVerification"
+        component={PasswordVerification}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="HeaderIcons"
+        component={HeaderIcons}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>
