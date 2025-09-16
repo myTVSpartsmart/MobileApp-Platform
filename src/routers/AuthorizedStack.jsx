@@ -4,6 +4,7 @@ import DashScreen from "../Screens/DashScreen";
 import "../service/apiInterceptor";
 import SplashScreen from "../Screens/SplashScreen";
 import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
+import PaymentEntry from "../Screens/CreateReceiptModule/PaymentEntry"
 
 import LoginScreen from "../Screens/LoginScreen";
 import PasswordVerification from "../Screens/PasswordVerification"
@@ -112,6 +113,11 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="DisplayInvoices"
         component={DisplayInvoices}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="PaymentEntry"
+        component={PaymentEntry}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>
