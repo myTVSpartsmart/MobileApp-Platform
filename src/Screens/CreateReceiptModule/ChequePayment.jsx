@@ -95,6 +95,7 @@ const ChequePayment = ({ visible, onClose, onSubmit, navigation }) => {
   const handleDone = () => {
     if (!chequeNumber.trim()) {
       Alert.alert("Missing Field", "Please enter Cheque Number");
+      console.log("Checking the same..")
       return;
     }
     if (!date.trim()) {
