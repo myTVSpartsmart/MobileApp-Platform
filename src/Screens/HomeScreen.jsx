@@ -81,7 +81,7 @@ const HomeScreen = () => {
       onPress: () => {},
     },
     {
-      label: "Receipt",
+      label: "View Receipt",
       isImage: true,
       icon: Calender,
       width: 150,
