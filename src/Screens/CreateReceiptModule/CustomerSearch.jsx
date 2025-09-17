@@ -17,7 +17,7 @@ const CustomerSearch = ({ navigation }) => {
       alert("Please enter a customer name or code");
       return;
     }
-    navigation.navigate("DisplaySearch", {
+    navigation.navigate("DisplayCustomer", {
       searchResults: [
         { id: "1", name: "SK AUTO PARTS", code: "EOTN0001B2 / KMS" },
       ],
