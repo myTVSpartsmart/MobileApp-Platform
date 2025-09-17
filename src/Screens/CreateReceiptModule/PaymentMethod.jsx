@@ -77,6 +77,7 @@ const PaymentMethod = ({ navigation, route }) => {
         break;
       case 'Cheque':
         navigation.navigate('ChequePayment', { amount: totalAmount });
+        console.log("Cheque Payment")
         break;
       case 'DD':
         navigation.navigate('DDPayment', { amount: totalAmount });
