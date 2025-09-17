@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons"; // 👈 import
+import Ionicons from "react-native-vector-icons/Ionicons"; 
 
 const CustomerSearch = ({ navigation }) => {
   const [customerCode, setCustomerCode] = useState("");
