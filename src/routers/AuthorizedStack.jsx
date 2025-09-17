@@ -12,6 +12,7 @@ import PasswordVerification from "../Screens/PasswordVerification"
 import DisplayCustomer from "../Screens/CreateReceiptModule/DisplayCustomer";
 import ExcessAmount from "../Screens/CreateReceiptModule/ExcessAmount";
 import PaymentMethod from "../Screens/CreateReceiptModule/PaymentMethod"
+import CashPayment from "../Screens/CreateReceiptModule/CashPayment"
 import HomeScreen from "../Screens/HomeScreen";
 import ForgotPassword from "../Screens/ForgotPassword";
 import ViewHistoryScreen from "../Screens/ViewHistoryScreen";
@@ -67,6 +68,11 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="CashPayment"
+        component={CashPayment}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
       <Stack.Screen
