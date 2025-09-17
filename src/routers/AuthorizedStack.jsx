@@ -7,11 +7,14 @@ import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
 import PaymentEntry from "../Screens/CreateReceiptModule/PaymentEntry"
 
 import LoginScreen from "../Screens/LoginScreen";
+import SuccessPage from "../Screens/CreateReceiptModule/SuccessPage"
+import ChallanPayment from "../Screens/CreateReceiptModule/ChallanPayment"
 import NewPlan from "../Screens/BeatPlanModule/NewPlan"
 import PasswordVerification from "../Screens/PasswordVerification"
 import DisplayCustomer from "../Screens/CreateReceiptModule/DisplayCustomer";
 import ExcessAmount from "../Screens/CreateReceiptModule/ExcessAmount";
 import PaymentMethod from "../Screens/CreateReceiptModule/PaymentMethod"
+import CashPayment from "../Screens/CreateReceiptModule/CashPayment"
 import HomeScreen from "../Screens/HomeScreen";
 import ForgotPassword from "../Screens/ForgotPassword";
 import ViewHistoryScreen from "../Screens/ViewHistoryScreen";
@@ -24,6 +27,7 @@ import ProfileScreen from "../Screens/ProfileScreen";
 import SupportScreen from "../Screens/SupportScreen";
 import ChangePasswordScreen from "../Screens/ChangePasswordScreen";
 import DisplayInvoices from "../Screens/CreateReceiptModule/DisplayInvoices";
+import ChequePayment from "../Screens/CreateReceiptModule/ChequePayment"
 
 const AuthorizedStack = () => {
   const Stack = createNativeStackNavigator();
@@ -71,6 +75,26 @@ const AuthorizedStack = () => {
        <Stack.Screen
         name="NewPlan"
         component={NewPlan}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="SuccessPage"
+        component={SuccessPage}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="CashPayment"
+        component={CashPayment}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ChequePayment"
+        component={ChequePayment}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ChallanPayment"
+        component={ChallanPayment}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
       <Stack.Screen
