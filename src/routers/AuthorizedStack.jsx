@@ -7,6 +7,7 @@ import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
 import PaymentEntry from "../Screens/CreateReceiptModule/PaymentEntry"
 
 import LoginScreen from "../Screens/LoginScreen";
+import ChallanPayment from "../Screens/CreateReceiptModule/ChallanPayment"
 import PasswordVerification from "../Screens/PasswordVerification"
 import DisplayCustomer from "../Screens/CreateReceiptModule/DisplayCustomer";
 import ExcessAmount from "../Screens/CreateReceiptModule/ExcessAmount";
@@ -65,6 +66,11 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ChallanPayment"
+        component={ChallanPayment}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
       <Stack.Screen
