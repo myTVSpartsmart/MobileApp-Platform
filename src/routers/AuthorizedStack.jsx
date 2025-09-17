@@ -25,6 +25,7 @@ import ProfileScreen from "../Screens/ProfileScreen";
 import SupportScreen from "../Screens/SupportScreen";
 import ChangePasswordScreen from "../Screens/ChangePasswordScreen";
 import DisplayInvoices from "../Screens/CreateReceiptModule/DisplayInvoices";
+import ChequePayment from "../Screens/CreateReceiptModule/ChequePayment"
 
 const AuthorizedStack = () => {
   const Stack = createNativeStackNavigator();
@@ -72,6 +73,11 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="CashPayment"
         component={CashPayment}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ChequePayment"
+        component={ChequePayment}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
       <Stack.Screen
