@@ -113,7 +113,7 @@ const HomeScreen = () => {
             </View>
 
             <HeaderIcons
-              onCartPress={() => alert("Cart clicked")}
+              onCartPress={() => alert("Cart clickedd")}
               onProfilePress={() => navigation.navigate("ProfileScreen")}
               colors="white"
             />
