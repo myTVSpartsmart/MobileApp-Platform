@@ -6,8 +6,8 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Alert,
   Image,
+  Alert,
 } from "react-native";
 
 const ForgotPasswordScreen = ({ navigation }) => {
@@ -23,25 +23,27 @@ const ForgotPasswordScreen = ({ navigation }) => {
 
   const handleResetPassword = async () => {
     if (!email || !password || !confirmPassword) {
-      Alert.alert("Error", "Please fill all fields");
+      Alert.alert("Missing Information", "Please fill in all fields.");
       return;
     }
     if (!validateEmail(email)) {
-      Alert.alert("Error", "Please enter a valid email address");
+      Alert.alert("Invalid Email", "Please enter a valid email address.");
       return;
     }
     if (password.length < 6) {
-      Alert.alert("Error", "Password must be at least 6 characters long");
+      Alert.alert(
+        "Weak Password",
+        "Password must be at least 6 characters long."
+      );
       return;
     }
     if (password !== confirmPassword) {
-      Alert.alert("Error", "Passwords do not match");
+      Alert.alert("Password Mismatch", "Passwords do not match.");
       return;
     }
 
-    // 🔹 Dummy success response (for now)
-    Alert.alert("Success", "Password reset successful (dummy response)");
-    navigation.goBack();
+    // ✅ All validations passed → navigate
+    navigation.navigate("PasswordVerification");
 
     /*
     // 🔹 Uncomment when API is ready
@@ -60,14 +62,13 @@ const ForgotPasswordScreen = ({ navigation }) => {
       const data = await response.json();
 
       if (response.ok) {
-        Alert.alert("Success", data.message || "Password reset successful");
-        navigation.goBack(); // or navigate to Login
+        navigation.navigate("PasswordVerification");
       } else {
         Alert.alert("Error", data.message || "Something went wrong");
       }
     } catch (error) {
-      Alert.alert("Error", "Failed to connect to server");
-      console.error(error);
+      Alert.alert("Network Error", "Failed to connect to server");
+      console.error("Failed to connect to server", error);
     }
     */
   };
@@ -78,7 +79,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
       <Image
         source={require("../assets/images/ForgotPassword.png")} // <-- put your image here
         style={styles.backgroundImage}
-        resizeMode="cover" // ensures it touches bottom fully
+        resizeMode="cover"
       />
 
       {/* Content */}
@@ -126,10 +127,10 @@ const ForgotPasswordScreen = ({ navigation }) => {
 
           {/* Reset Button */}
           <TouchableOpacity
-            style={styles.signInButton}
+            style={styles.resetButton}
             onPress={handleResetPassword}
           >
-            <Text style={styles.signInText}>Sign In</Text>
+            <Text style={styles.resetText}>Reset Password</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -146,9 +147,9 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    justifyContent: "center", // centers vertically
+    justifyContent: "center",
     paddingHorizontal: 24,
-    paddingBottom: 60, // avoids overlap with bottom image
+    paddingBottom: 60,
   },
   backgroundImage: {
     position: "absolute",
@@ -156,7 +157,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     width: 450,
-    height: 258, // ✅ Adjust ratio instead of fixed width
+    height: 258,
   },
   title: {
     fontSize: 22,
@@ -188,17 +189,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#000",
   },
-  signInButton: {
+  resetButton: {
     backgroundColor: "#F36F21",
     borderRadius: 6,
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 14,
     marginTop: 30,
-    width: "50%",
+    width: "60%",
     alignSelf: "center",
   },
-  signInText: {
+  resetText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "600",
