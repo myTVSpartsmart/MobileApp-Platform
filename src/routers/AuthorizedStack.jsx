@@ -8,7 +8,8 @@ import PaymentEntry from "../Screens/CreateReceiptModule/PaymentEntry"
 
 import LoginScreen from "../Screens/LoginScreen";
 import SuccessPage from "../Screens/CreateReceiptModule/SuccessPage"
-import ChallanPayment from "../Screens/ CreateReceiptModule/ChallanPayment"
+import ChallanPayment from "../Screens/CreateReceiptModule/ChallanPayment"
+import NewPlan from "../Screens/BeatPlanModule/NewPlan"
 import PasswordVerification from "../Screens/PasswordVerification"
 import DisplayCustomer from "../Screens/CreateReceiptModule/DisplayCustomer";
 import ExcessAmount from "../Screens/CreateReceiptModule/ExcessAmount";
@@ -28,7 +29,6 @@ import ChangePasswordScreen from "../Screens/ChangePasswordScreen";
 import DisplayInvoices from "../Screens/CreateReceiptModule/DisplayInvoices";
 import ChequePayment from "../Screens/CreateReceiptModule/ChequePayment"
 
-import LoginScreen from "../Screens/LoginScreen"
 const AuthorizedStack = () => {
   const Stack = createNativeStackNavigator();
   return (
@@ -63,11 +63,6 @@ const AuthorizedStack = () => {
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
       <Stack.Screen
-        name="LoginScreen"
-        component={LoginScreen}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
         name="ForgotPassword"
         component={ForgotPassword}
         options={{ headerShown: false, animation: 'slide_from_right' }}
@@ -75,6 +70,11 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+       <Stack.Screen
+        name="NewPlan"
+        component={NewPlan}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
       <Stack.Screen
