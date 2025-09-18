@@ -1,3 +1,4 @@
+// src/Screens/LoginScreen.js
 import React, { useState } from "react";
 import {
   View,
@@ -8,24 +9,29 @@ import {
   Linking,
   Alert,
 } from "react-native";
+
 // Example dummy credentials
 const DUMMY_USER = {
   email: "testuser@gmail.com",
   password: "password123",
 };
+
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
   const handleSignIn = async () => {
     if (!email || !password) {
       Alert.alert("Error", "Please enter both email and password");
       return;
     }
+
     setLoading(true);
+
     try {
       // =====================
-      // :small_blue_diamond: DUMMY LOGIN CHECK
+      // 🔹 DUMMY LOGIN CHECK
       // =====================
       if (email === DUMMY_USER.email && password === DUMMY_USER.password) {
         // Alert.alert("Success", "Logged in successfully with dummy data!");
@@ -35,8 +41,9 @@ const LoginScreen = ({ navigation }) => {
         Alert.alert("Error", "Invalid email or password (dummy check)");
         console.log("Failed");
       }
+
       // =====================
-      // :small_blue_diamond: REAL API LOGIN (uncomment when ready)
+      // 🔹 REAL API LOGIN (uncomment when ready)
       // =====================
       /*
       const response = await fetch("https://your-api.com/login", {
@@ -46,7 +53,9 @@ const LoginScreen = ({ navigation }) => {
         },
         body: JSON.stringify({ email, password }),
       });
+
       const data = await response.json();
+
       if (response.ok) {
         Alert.alert("Success", "Logged in successfully!");
         // Save token, navigate, etc.
@@ -62,6 +71,7 @@ const LoginScreen = ({ navigation }) => {
       setLoading(false);
     }
   };
+
   return (
     <View style={styles.container}>
       {/* Content wrapper (header + form) */}
@@ -73,6 +83,7 @@ const LoginScreen = ({ navigation }) => {
             Hi! Welcome back, you've been missed
           </Text>
         </View>
+
         {/* Form */}
         <View style={styles.formContainer}>
           <Text style={styles.label}>Email</Text>
@@ -85,6 +96,7 @@ const LoginScreen = ({ navigation }) => {
             value={email}
             onChangeText={setEmail}
           />
+
           <Text style={[styles.label, { marginTop: 20 }]}>Password</Text>
           <TextInput
             style={styles.input}
@@ -94,10 +106,12 @@ const LoginScreen = ({ navigation }) => {
             value={password}
             onChangeText={setPassword}
           />
+
           {/* Forgot Password */}
           <TouchableOpacity style={styles.forgotPasswordContainer}>
             <Text style={styles.forgotPassword}>Forgot Password?</Text>
           </TouchableOpacity>
+
           {/* Sign In Button */}
           <TouchableOpacity
             style={styles.signInButton}
@@ -110,6 +124,7 @@ const LoginScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
+
       {/* Footer */}
       <View style={styles.footerContainer}>
         <Text style={styles.supportText}>
@@ -124,7 +139,9 @@ const LoginScreen = ({ navigation }) => {
     </View>
   );
 };
+
 export default LoginScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -132,7 +149,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    justifyContent: 'center', 
+    justifyContent: "center", // centers vertically
     paddingHorizontal: 24,
   },
   headerContainer: {

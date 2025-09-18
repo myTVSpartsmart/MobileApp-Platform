@@ -13,6 +13,7 @@ const SplashScreen = ({ navigation }) => {
     setTimeout(() => {
       navigation.replace("LoginScreen");
     }, 2000);
+    console.log("LoginScreen")
   }, [navigation]);
   return (
     <View style={styles.container}>

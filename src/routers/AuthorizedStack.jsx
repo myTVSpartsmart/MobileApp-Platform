@@ -1,20 +1,36 @@
-import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import DashScreen from "../Screens/DashScreen";
-import "../service/apiInterceptor";
-import SplashScreen from "../Screens/SplashScreen";
-import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import DashScreen from '../Screens/DashScreen';
+import '../service/apiInterceptor';
+import SplashScreen from '../Screens/SplashScreen';
+import SearchCustomer from '../Screens/CreateOrderModule/SearchCustomer';
 
-import LoginScreen from "../Screens/LoginScreen";
-import DDPayment from "../Screens/CreateReceiptModule/DDPayment"
-import CashPayment from "../Screens/CreateReceiptModule/CashPayment"
-import HomeScreen from "../Screens/HomeScreen";
-import TabNavigator from "../Navigation/TabNavigator";
+import LoginScreen from '../Screens/LoginScreen';
+import DDPayment from '../Screens/CreateReceiptModule/DDPayment';
+import SuccessPage from '../Screens/CreateReceiptModule/SuccessPage';
+import ChallanPayment from '../Screens/CreateReceiptModule/ChallanPayment';
+import NewPlan from '../Screens/BeatPlanModule/NewPlan';
+import PasswordVerification from '../Screens/PasswordVerification';
+import DisplayCustomer from '../Screens/CreateReceiptModule/DisplayCustomer';
+import ExcessAmount from '../Screens/CreateReceiptModule/ExcessAmount';
+import PaymentMethod from '../Screens/CreateReceiptModule/PaymentMethod';
+import CashPayment from '../Screens/CreateReceiptModule/CashPayment';
+import HomeScreen from '../Screens/HomeScreen';
+import TabNavigator from '../Navigation/TabNavigator';
+import CustomerSearch from '../Screens/CreateReceiptModule/CustomerSearch';
+import HeaderIcons from '../Components/HeaderIcons';
+
+import ProfileScreen from '../Screens/ProfileScreen';
+import SupportScreen from '../Screens/SupportScreen';
+import ChangePasswordScreen from '../Screens/ChangePasswordScreen';
+import DisplayInvoices from '../Screens/CreateReceiptModule/DisplayInvoices';
+import ChequePayment from '../Screens/CreateReceiptModule/ChequePayment';
 
 const AuthorizedStack = () => {
   const Stack = createNativeStackNavigator();
   return (
-    <Stack.Navigator initialRouteName={"SplashScreen"}
+    <Stack.Navigator
+      initialRouteName={'SplashScreen'}
       screenOptions={{
         animationEnabled: false,
       }}
@@ -44,9 +60,19 @@ const AuthorizedStack = () => {
         component={TabNavigator}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="NewPlan"
+        component={NewPlan}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="SuccessPage"
+        component={SuccessPage}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
       <Stack.Screen
@@ -57,6 +83,81 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="DDPayment"
         component={DDPayment}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ChequePayment"
+        component={ChequePayment}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ChallanPayment"
+        component={ChallanPayment}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="CustomerSearch"
+        component={CustomerSearch}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ViewHistoryScreen"
+        component={ViewHistoryScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="OrderDetailsScreen"
+        component={OrderDetailsScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="SupportScreen"
+        component={SupportScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ChangePasswordScreen"
+        component={ChangePasswordScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="PasswordVerification"
+        component={PasswordVerification}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="HeaderIcons"
+        component={HeaderIcons}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="DisplayCustomer"
+        component={DisplayCustomer}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="DisplayInvoices"
+        component={DisplayInvoices}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="PaymentEntry"
+        component={PaymentEntry}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ExcessAmount"
+        component={ExcessAmount}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="PaymentMethod"
+        component={PaymentMethod}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>

@@ -71,38 +71,33 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-        {/* HEADER */}
-        <ImageBackground
-          source={TopimageforHomepage}
-          style={styles.imageBackground}
-          imageStyle={styles.imageStyle}
-          resizeMode="contain"
+      {/* HEADER */}
+      <ImageBackground
+        source={TopimageforHomepage}
+        style={styles.imageBackground}
+        imageStyle={styles.imageStyle}
+        resizeMode="contain"
+      >
+        <LinearGradient
+          colors={["#24358D80", "#24358DFF"]}
+          start={{ x: 0, y: 1 }}
+          end={{ x: 0, y: 0 }}
+          style={styles.gradientOverlay}
         >
-          <LinearGradient
-            colors={["#24358D80", "#24358DFF"]}
-            start={{ x: 0, y: 1 }}
-            end={{ x: 0, y: 0 }}
-            style={styles.gradientOverlay}
-          >
-            <View style={styles.headerContent}>
-              <View>
-                <Text style={styles.greetingText}>Hello, {name}!</Text>
-                <Text style={styles.subText}>Have a nice day</Text>
-              </View>
-              <View style={styles.iconContainer}>
-                <TouchableOpacity onPress={() => alert("Cart clicked")}>
-                  <Icon name="shopping-cart" size={28} color="#fff" />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => alert("Profile clicked")}
-                  style={{ marginLeft: 20 }}
-                >
-                  <Icon name="person" size={28} color="#fff" />
-                </TouchableOpacity>
-              </View>
+          <View style={styles.headerContent}>
+            <View>
+              <Text style={styles.greetingText}>Hello, {name}!</Text>
+              <Text style={styles.subText}>Have a nice day</Text>
             </View>
-          </LinearGradient>
-        </ImageBackground>
+
+            <HeaderIcons
+              onCartPress={() => alert("Cart clickedd")}
+              onProfilePress={() => navigation.navigate("ProfileScreen")}
+              colors="white"
+            />
+          </View>
+        </LinearGradient>
+      </ImageBackground>
 
         {/* STAT CARDS */}
         <View style={styles.statsContainer}>
