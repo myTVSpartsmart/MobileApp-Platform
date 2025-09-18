@@ -7,7 +7,6 @@ import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
 import PaymentEntry from "../Screens/CreateReceiptModule/PaymentEntry"
 
 import LoginScreen from "../Screens/LoginScreen";
-import RepeatOn from "../Screens/BeatPlanModule/RepeatOn"
 import PasswordVerification from "../Screens/PasswordVerification"
 import DisplayCustomer from "../Screens/CreateReceiptModule/DisplayCustomer";
 import ExcessAmount from "../Screens/CreateReceiptModule/ExcessAmount";
@@ -24,6 +23,7 @@ import ProfileScreen from "../Screens/ProfileScreen";
 import SupportScreen from "../Screens/SupportScreen";
 import ChangePasswordScreen from "../Screens/ChangePasswordScreen";
 import DisplayInvoices from "../Screens/CreateReceiptModule/DisplayInvoices";
+import RepeatOn from "../Screens/BeatPlanModule/RepeatOn";
 
 const AuthorizedStack = () => {
   const Stack = createNativeStackNavigator();
@@ -66,11 +66,6 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="RepeatOn"
-        component={RepeatOn}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
       <Stack.Screen
@@ -136,6 +131,11 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="PaymentMethod"
         component={PaymentMethod}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="RepeatOn"
+        component={RepeatOn}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
     </Stack.Navigator>
