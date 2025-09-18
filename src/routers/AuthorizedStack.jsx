@@ -8,7 +8,7 @@ import PaymentEntry from "../Screens/CreateReceiptModule/PaymentEntry"
 
 import LoginScreen from "../Screens/LoginScreen";
 import SuccessPage from "../Screens/CreateReceiptModule/SuccessPage"
-import ChallanPayment from "../Screens/CreateReceiptModule/ChallanPayment"
+import ChallanPayment from "../Screens/ CreateReceiptModule/ChallanPayment"
 import PasswordVerification from "../Screens/PasswordVerification"
 import DisplayCustomer from "../Screens/CreateReceiptModule/DisplayCustomer";
 import ExcessAmount from "../Screens/CreateReceiptModule/ExcessAmount";

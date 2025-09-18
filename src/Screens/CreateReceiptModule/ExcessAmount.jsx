@@ -66,7 +66,7 @@ const ExcessAmount = ({ navigation }) => {
             <View style={styles.excessBox}>
               <Text style={styles.excessAmount}>₹ 2.00</Text>
               <Text style={styles.excessNote}>
-                Excess amount will be added as advance payment
+                Excess amount will be added as advance payment {/* Note to users */}
               </Text>
             </View>
 
