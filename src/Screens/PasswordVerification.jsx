@@ -35,7 +35,6 @@ const VerifyCodeScreen = ({ navigation }) => {
     if (enteredOtp === "272727") {
       Alert.alert("Success", "OTP verified successfully (dummy check)");
       navigation.replace("LoginScreen"); // Example redirect
-      console.log("Login successful")
     } else {
       Alert.alert("Error", "Invalid OTP (dummy check)");
     }

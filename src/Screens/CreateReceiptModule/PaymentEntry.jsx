@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -6,11 +6,11 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
-} from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+} from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 const PaymentEntry = ({ navigation }) => {
-  const [amount, setAmount] = useState('');
+  const [amount, setAmount] = useState("");
 
   // ==============================
   // 🔹 API Logic (commented)
@@ -39,20 +39,17 @@ const PaymentEntry = ({ navigation }) => {
 
   const handleNext = () => {
     if (!amount) {
-      alert('Please enter amount');
+      alert("Please enter amount");
       return;
     }
-    navigation.navigate('ExcessAmount', { amount });
+    navigation.navigate("ExcessAmount", { amount });
   };
 
   return (
     <View style={styles.container}>
       {/* 🔹 Header Row with Back Icon + Title */}
       <View style={styles.headerRow}>
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={styles.backIcon}
-        >
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backIcon}>
           <Ionicons name="chevron-back" size={16} color="#000" />
         </TouchableOpacity>
         <Text style={styles.header}>Pay</Text>
@@ -68,9 +65,10 @@ const PaymentEntry = ({ navigation }) => {
           placeholder="Enter Amount"
           keyboardType="numeric"
           value={amount}
-          onChangeText={val => setAmount(val)}
+          onChangeText={(val) => setAmount(val)}
         />
 
+        {/* 🔹 Buttons Row (Back 50%, Continue 50%) */}
         <View style={styles.buttonRow}>
           <TouchableOpacity
             style={[styles.button, styles.backButton]}
@@ -96,30 +94,30 @@ export default PaymentEntry;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     padding: 20,
     paddingTop: 60, // pushes content down
   },
   headerRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 15,
   },
   backIcon: { marginRight: 6 },
-  header: { fontSize: 20, fontWeight: '600', color: '#000' },
-  subHeader: { fontSize: 15, color: '#444', marginBottom: 20 },
+  header: { fontSize: 20, fontWeight: "600", color: "#000" },
+  subHeader: { fontSize: 15, color: "#444", marginBottom: 20 },
 
   // Box styling
   box: {
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: "#ddd",
     borderRadius: 8,
     padding: 16,
   },
-  label: { fontSize: 14, fontWeight: '500', marginBottom: 8 },
+  label: { fontSize: 14, fontWeight: "500", marginBottom: 8 },
   input: {
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: "#ddd",
     borderRadius: 8,
     padding: 12,
     fontSize: 15,
@@ -127,28 +125,28 @@ const styles = StyleSheet.create({
   },
 
   buttonRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   button: {
     flex: 1, // ✅ Equal width
     paddingVertical: 14,
     borderRadius: 6,
-    alignItems: 'center',
+    alignItems: "center",
     marginHorizontal: 4,
   },
   backButton: {
-    backgroundColor: '#fff',
-    borderColor: '#ccc',
+    backgroundColor: "#fff",    
+    borderColor: "#ccc",
   },
   backText: {
     fontSize: 15,
-    fontWeight: '600',
-    color: '#2D2A6E',
+    fontWeight: "600",
+    color: "#2D2A6E",
   },
   continueButton: {
-    backgroundColor: '#FF6600',
+    backgroundColor: "#FF6600",
   },
-  continueText: { color: '#fff', fontSize: 15, fontWeight: '600' },
+  continueText: { color: "#fff", fontSize: 15, fontWeight: "600" },
 });

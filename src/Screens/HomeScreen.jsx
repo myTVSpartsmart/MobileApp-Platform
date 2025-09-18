@@ -81,7 +81,7 @@ const HomeScreen = () => {
       onPress: () => {},
     },
     {
-      label: "View Receipt",
+      label: "Receipt",
       isImage: true,
       icon: Calender,
       width: 150,
@@ -113,7 +113,7 @@ const HomeScreen = () => {
             </View>
 
             <HeaderIcons
-              onCartPress={() => alert("Cart clickedd")}
+              onCartPress={() => alert("Cart clicked")}
               onProfilePress={() => navigation.navigate("ProfileScreen")}
               colors="white"
             />
