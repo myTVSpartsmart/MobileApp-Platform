@@ -12,10 +12,38 @@ import {
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
-      // navigation.replace("DashScreen");  
+      navigation.replace("LoginScreen");
     }, 2000);
+    console.log("LoginScreen")
   }, [navigation]);
+// const SplashScreen = ({ navigation }) => {
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         // Fetch login status
+//         const loggedIn = await getStorageData("is_Logged");
+//         setIsLogged(loggedIn === "true"); // Ensure you handle the stored data format correctly
 
+//         const alertResponse = await getAlert(data);
+
+//         // Navigate based on alert and login status
+//         // if (alertResponse?.success === true) {
+//         //   navigation.navigate("AlertScreen", { alertData: alertResponse });
+//         // } else if (loggedIn === "true") {
+//         //   navigation.navigate("DashScreen");
+//         // } else {
+//         //   navigation.navigate("LoginScreen");
+//         // }
+//         navigation.navigate("ForgotPassword");
+//       } catch (error) {
+//         console.error("Error during splash setup: ", error);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchData();
+//   }, [navigation]);
   return (
     <View style={styles.container}>
       {/* Background Image (moved lower) */}
@@ -24,7 +52,6 @@ const SplashScreen = ({ navigation }) => {
         style={styles.backgroundImage}
         resizeMode="cover"
       />
-      
       <View style={styles.content}>
         {/* Top Logo */}
         <View style={styles.topContainer}>
@@ -35,7 +62,6 @@ const SplashScreen = ({ navigation }) => {
           />
           <Text style={styles.text}>Welcome Back!</Text>
         </View>
-
         {/* Illustration */}
         <View style={styles.middleContainer}>
           <Image
@@ -44,7 +70,6 @@ const SplashScreen = ({ navigation }) => {
             resizeMode="contain"
           />
         </View>
-
         {/* Footer */}
         <View style={styles.footerContainer}>
           <Text style={styles.supportText}>
@@ -60,13 +85,11 @@ const SplashScreen = ({ navigation }) => {
     </View>
   );
 };
-
 export default SplashScreen;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    position: 'relative', // Allow for absolute positioning of background    
+    position: 'relative', // Allow for absolute positioning of background
   },
   backgroundImage: {
     position: 'absolute',
