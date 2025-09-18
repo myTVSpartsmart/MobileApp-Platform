@@ -7,11 +7,6 @@ import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
 
 import LoginScreen from "../Screens/LoginScreen";
 import DDPayment from "../Screens/CreateReceiptModule/DDPayment"
-import ChallanPayment from "../Screens/CreateReceiptModule/ChallanPayment"
-import PasswordVerification from "../Screens/PasswordVerification"
-import DisplayCustomer from "../Screens/CreateReceiptModule/DisplayCustomer";
-import ExcessAmount from "../Screens/CreateReceiptModule/ExcessAmount";
-import PaymentMethod from "../Screens/CreateReceiptModule/PaymentMethod"
 import CashPayment from "../Screens/CreateReceiptModule/CashPayment"
 import HomeScreen from "../Screens/HomeScreen";
 import TabNavigator from "../Navigation/TabNavigator";
@@ -52,76 +47,6 @@ const AuthorizedStack = () => {
        <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="ChallanPayment"
-        component={ChallanPayment}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="CustomerSearch"
-        component={CustomerSearch}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-       <Stack.Screen
-        name="ViewHistoryScreen"
-        component={ViewHistoryScreen}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-       <Stack.Screen
-        name="OrderDetailsScreen"
-        component={OrderDetailsScreen}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-       <Stack.Screen
-        name="ProfileScreen"
-        component={ProfileScreen}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="SupportScreen"
-        component={SupportScreen}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="ChangePasswordScreen"
-        component={ChangePasswordScreen}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="PasswordVerification"
-        component={PasswordVerification}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="HeaderIcons"
-        component={HeaderIcons}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="DisplayCustomer"
-        component={DisplayCustomer}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="DisplayInvoices"
-        component={DisplayInvoices}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="PaymentEntry"
-        component={PaymentEntry}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="ExcessAmount"
-        component={ExcessAmount}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="PaymentMethod"
-        component={PaymentMethod}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
       <Stack.Screen
