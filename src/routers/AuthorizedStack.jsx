@@ -28,6 +28,7 @@ import ChangePasswordScreen from "../Screens/ChangePasswordScreen";
 import DisplayInvoices from "../Screens/CreateReceiptModule/DisplayInvoices";
 import ChequePayment from "../Screens/CreateReceiptModule/ChequePayment"
 
+import LoginScreen from "../Screens/LoginScreen"
 const AuthorizedStack = () => {
   const Stack = createNativeStackNavigator();
   return (
@@ -59,6 +60,11 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="TabNavigator"
         component={TabNavigator}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
       <Stack.Screen

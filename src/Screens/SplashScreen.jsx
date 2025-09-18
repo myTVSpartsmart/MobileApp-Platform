@@ -14,6 +14,10 @@ const SplashScreen = ({ navigation }) => {
     setTimeout(() => {
       navigation.replace("LoginScreen");
     }, 2000);
+<<<<<<< HEAD
+    console.log("LoginScreen")
+=======
+>>>>>>> 8438897dd3ba766190e9d5b163ce030ff09b2506
   }, [navigation]);
 // const SplashScreen = ({ navigation }) => {
 //   useEffect(() => {
