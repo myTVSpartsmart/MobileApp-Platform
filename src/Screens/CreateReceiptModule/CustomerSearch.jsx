@@ -26,7 +26,7 @@ const CustomerSearch = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {/* Header with "<" back icon */}
+      
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons name="chevron-back" size={28} color="#000" />
