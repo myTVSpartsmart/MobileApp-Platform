@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    justifyContent: 'center', // centers vertically
+    justifyContent: 'center', 
     paddingHorizontal: 24,
   },
   headerContainer: {
