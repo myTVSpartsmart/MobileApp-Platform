@@ -4,13 +4,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../Screens/HomeScreen';
 import SalesScreen from '../Screens/SalesScreen';
 import ReceiptScreen from '../Screens/ReceiptScreen';
-import BeatScreen from '../Screens/BeatScreen';
+// import BeatScreen from '../Screens/BeatScreen';
 import ViewHistoryScreen from '../Screens/ViewHistoryScreen';
 import OrderDetailsScreen from '../Screens/OrderDetailsScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
 import SupportScreen from "../Screens/SupportScreen";
 import ChangePasswordScreen from "../Screens/ChangePasswordScreen";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import NewPlan from '../Screens/BeatPlanModule/NewPlan';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -75,7 +76,7 @@ const TabNavigator = () => {
       <Tab.Screen name="Home" component={HomeStack} />
       <Tab.Screen name="Sales" component={SalesScreen} />
       <Tab.Screen name="Receipt" component={ReceiptScreen} />
-      <Tab.Screen name="Beat" component={BeatScreen} />
+      <Tab.Screen name="Beat" component={NewPlan} />
     </Tab.Navigator>
   );
 };

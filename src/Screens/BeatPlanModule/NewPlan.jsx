@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -8,41 +8,66 @@ import {
   ScrollView,
   Modal,
   FlatList,
-} from "react-native";
-import dayjs from "dayjs";
-import Icon from "react-native-vector-icons/Ionicons";
+} from 'react-native';
+import dayjs from 'dayjs';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 // Custom Components
-import CalendarModal from "../../Components/CalendarModal";
-import TimePickerModal from "../../Components/TimePickerModal";
-import SalesScreen from "../SalesScreen";
+import CalendarModal from '../../Components/CalendarModal';
+import TimePickerModal from '../../Components/TimePickerModal';
+import SalesScreen from '../SalesScreen';
 
 const PLAN_TYPES = [
-  "New Plan",
-  "Event",
-  "Meeting",
-  "Training",
-  "Leave",
-  "Holiday",
-  "New Leads Creates",
+  'New Plan',
+  'Event',
+  'Meeting',
+  'Training',
+  'Leave',
+  'Holiday',
+  'New Leads Creates',
 ];
 
 // ===== Dummy API Data (replace later with API call) =====
 const DUMMY_LOCATIONS = [
   // Chennai
-  "T Nagar", "Velachery", "Anna Nagar", "Adyar", "Guindy",
-  "Tambaram", "Kodambakkam", "Nungambakkam",
+  'T Nagar',
+  'Velachery',
+  'Anna Nagar',
+  'Adyar',
+  'Guindy',
+  'Tambaram',
+  'Kodambakkam',
+  'Nungambakkam',
   // Madurai
-  "Mattuthavani", "Thirupparankundram", "KK Nagar", "Tallakulam",
-  "Simmakkal", "Palanganatham", "Koodal Nagar", "Periyar Bus Stand",
+  'Mattuthavani',
+  'Thirupparankundram',
+  'KK Nagar',
+  'Tallakulam',
+  'Simmakkal',
+  'Palanganatham',
+  'Koodal Nagar',
+  'Periyar Bus Stand',
   // Coimbatore
-  "Gandhipuram", "RS Puram", "Saibaba Colony", "Singanallur",
-  "Peelamedu", "Race Course", "Ukkadam", "Vadavalli", "Saravanampatti"
+  'Gandhipuram',
+  'RS Puram',
+  'Saibaba Colony',
+  'Singanallur',
+  'Peelamedu',
+  'Race Course',
+  'Ukkadam',
+  'Vadavalli',
+  'Saravanampatti',
 ]; // Total = 25
 
 const DUMMY_CUSTOMERS = [
-  "Customer A", "Customer B", "Customer C", "Customer D",
-  "Customer E", "Customer F", "Customer G", "Customer H"
+  'Customer A',
+  'Customer B',
+  'Customer C',
+  'Customer D',
+  'Customer E',
+  'Customer F',
+  'Customer G',
+  'Customer H',
 ];
 // =======================================================
 
@@ -52,9 +77,9 @@ const NewPlan = ({ navigation }) => {
 
   const [location, setLocation] = useState([]);
   const [customer, setCustomer] = useState([]);
-  const [remarks, setRemarks] = useState("");
+  const [remarks, setRemarks] = useState('');
 
-  const [planType, setPlanType] = useState("New Plan");
+  const [planType, setPlanType] = useState('New Plan');
   const [showDropdown, setShowDropdown] = useState(false);
 
   // Modals
@@ -73,13 +98,13 @@ const NewPlan = ({ navigation }) => {
   const handleCreate = () => {
     console.log({
       planType,
-      date: date.format("DD/MM/YYYY"),
-      time: time.format("hh:mm A"),
+      date: date.format('DD/MM/YYYY'),
+      time: time.format('hh:mm A'),
       location,
       customer,
       remarks,
     });
-    navigation.navigate("RepeatOn");
+    navigation.navigate('RepeatOn');
   };
 
   const toggleSelection = (item, selectedList, setSelectedList) => {
@@ -124,7 +149,7 @@ const NewPlan = ({ navigation }) => {
           <View style={styles.modalContent}>
             <FlatList
               data={PLAN_TYPES}
-              keyExtractor={(item) => item}
+              keyExtractor={item => item}
               renderItem={({ item }) => (
                 <TouchableOpacity
                   style={styles.option}
@@ -135,9 +160,7 @@ const NewPlan = ({ navigation }) => {
                 >
                   <Icon
                     name={
-                      planType === item
-                        ? "radio-button-on"
-                        : "radio-button-off"
+                      planType === item ? 'radio-button-on' : 'radio-button-off'
                     }
                     size={20}
                     color="#FF6600"
@@ -153,7 +176,7 @@ const NewPlan = ({ navigation }) => {
       {/* Add New Plan Section */}
       <View style={styles.section}>
         {/* Case 1: New Plan → full form */}
-        {planType === "New Plan" && (
+        {planType === 'New Plan' && (
           <>
             {/* Date & Time Row */}
             <View style={styles.row}>
@@ -164,7 +187,7 @@ const NewPlan = ({ navigation }) => {
                   onPress={() => setShowCalendar(true)}
                 >
                   <Text style={styles.inputText}>
-                    {date ? dayjs(date).format("DD/MM/YYYY") : "Select Date"}
+                    {date ? dayjs(date).format('DD/MM/YYYY') : 'Select Date'}
                   </Text>
                   <Icon name="calendar-outline" size={18} color="#888" />
                 </TouchableOpacity>
@@ -177,7 +200,7 @@ const NewPlan = ({ navigation }) => {
                   onPress={() => setShowTime(true)}
                 >
                   <Text style={styles.inputText}>
-                    {time ? dayjs(time).format("hh:mm A") : "Select Time"}
+                    {time ? dayjs(time).format('hh:mm A') : 'Select Time'}
                   </Text>
                   <Icon name="time-outline" size={18} color="#888" />
                 </TouchableOpacity>
@@ -192,8 +215,8 @@ const NewPlan = ({ navigation }) => {
             >
               <Text style={styles.placeholder}>
                 {location.length > 0
-                  ? location.join(", ")
-                  : "Click here to Select location"}
+                  ? location.join(', ')
+                  : 'Click here to Select location'}
               </Text>
               <Icon name="location-outline" size={18} color="#888" />
             </TouchableOpacity>
@@ -206,8 +229,8 @@ const NewPlan = ({ navigation }) => {
             >
               <Text style={styles.placeholder}>
                 {customer.length > 0
-                  ? customer.join(", ")
-                  : "Click here to Select Customer"}
+                  ? customer.join(', ')
+                  : 'Click here to Select Customer'}
               </Text>
               <Icon name="chevron-down" size={18} color="#888" />
             </TouchableOpacity>
@@ -219,6 +242,75 @@ const NewPlan = ({ navigation }) => {
               placeholder="Enter Remarks"
               value={remarks}
               onChangeText={setRemarks}
+            />
+          </>
+        )}
+
+        {/* Case 2: Event, Meeting, Training → Date, Time, Remarks */}
+        {(planType === 'Event' ||
+          planType === 'Meeting' ||
+          planType === 'Training') && (
+          <>
+            {/* Date */}
+            <Text style={styles.label}>Date</Text>
+            <TouchableOpacity
+              style={styles.inputWithIcon}
+              onPress={() => setShowCalendar(true)}
+            >
+              <Text style={styles.inputText}>
+                {date ? dayjs(date).format('DD/MM/YYYY') : 'Select Date'}
+              </Text>
+              <Icon name="calendar-outline" size={18} color="#888" />
+            </TouchableOpacity>
+
+            {/* Time */}
+            <Text style={styles.label}>Time</Text>
+            <TouchableOpacity
+              style={styles.inputWithIcon}
+              onPress={() => setShowTime(true)}
+            >
+              <Text style={styles.inputText}>
+                {time ? dayjs(time).format('hh:mm A') : 'Select Time'}
+              </Text>
+              <Icon name="time-outline" size={18} color="#888" />
+            </TouchableOpacity>
+
+            {/* Remarks */}
+            <Text style={styles.label}>Remarks</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter Remarks"
+              value={remarks}
+              onChangeText={setRemarks}
+            />
+          </>
+        )}
+
+        {/* Case 3: Leave, Holiday, New Leads Creates → Date + Big Remarks */}
+        {(planType === 'Leave' ||
+          planType === 'Holiday' ||
+          planType === 'New Leads Creates') && (
+          <>
+            {/* Date */}
+            <Text style={styles.label}>Date</Text>
+            <TouchableOpacity
+              style={styles.inputWithIcon}
+              onPress={() => setShowCalendar(true)}
+            >
+              <Text style={styles.inputText}>
+                {date ? dayjs(date).format('DD/MM/YYYY') : 'Select Date'}
+              </Text>
+              <Icon name="calendar-outline" size={18} color="#888" />
+            </TouchableOpacity>
+
+            {/* Remarks (Big Box) */}
+            <Text style={styles.label}>Remarks</Text>
+            <TextInput
+              style={[styles.input, { height: 100, textAlignVertical: 'top' }]}
+              placeholder="Enter Remarks"
+              value={remarks}
+              onChangeText={setRemarks}
+              multiline
             />
           </>
         )}
@@ -234,7 +326,7 @@ const NewPlan = ({ navigation }) => {
         visible={showCalendar}
         onClose={() => setShowCalendar(false)}
         selectedDate={date}
-        onSelectDate={(newDate) => setDate(newDate)}
+        onSelectDate={newDate => setDate(newDate)}
       />
 
       {/* Time Picker Modal */}
@@ -242,7 +334,7 @@ const NewPlan = ({ navigation }) => {
         visible={showTime}
         onClose={() => setShowTime(false)}
         selectedTime={time}
-        onSelectTime={(newTime) => setTime(newTime)}
+        onSelectTime={newTime => setTime(newTime)}
       />
 
       {/* Location Modal */}
@@ -252,19 +344,15 @@ const NewPlan = ({ navigation }) => {
             <Text style={styles.modalTitle}>Select Locations</Text>
             <FlatList
               data={DUMMY_LOCATIONS}
-              keyExtractor={(item) => item}
+              keyExtractor={item => item}
               renderItem={({ item }) => (
                 <TouchableOpacity
                   style={styles.option}
-                  onPress={() =>
-                    toggleSelection(item, location, setLocation)
-                  }
+                  onPress={() => toggleSelection(item, location, setLocation)}
                 >
                   <Icon
                     name={
-                      location.includes(item)
-                        ? "checkbox"
-                        : "square-outline"
+                      location.includes(item) ? 'checkbox' : 'square-outline'
                     }
                     size={20}
                     color="#FF6600"
@@ -290,19 +378,15 @@ const NewPlan = ({ navigation }) => {
             <Text style={styles.modalTitle}>Select Customers</Text>
             <FlatList
               data={DUMMY_CUSTOMERS}
-              keyExtractor={(item) => item}
+              keyExtractor={item => item}
               renderItem={({ item }) => (
                 <TouchableOpacity
                   style={styles.option}
-                  onPress={() =>
-                    toggleSelection(item, customer, setCustomer)
-                  }
+                  onPress={() => toggleSelection(item, customer, setCustomer)}
                 >
                   <Icon
                     name={
-                      customer.includes(item)
-                        ? "checkbox"
-                        : "square-outline"
+                      customer.includes(item) ? 'checkbox' : 'square-outline'
                     }
                     size={20}
                     color="#FF6600"
@@ -329,18 +413,18 @@ export default NewPlan;
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     flexGrow: 1,
   },
   header: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 20,
     marginTop: 25,
   },
   headerText: {
     fontSize: 18,
-    fontWeight: "600",
+    fontWeight: '600',
     marginLeft: 10,
   },
   section: {
@@ -349,100 +433,100 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     marginBottom: 5,
-    color: "#333",
+    color: '#333',
   },
   row: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   halfInput: {
-    width: "48%",
+    width: '48%',
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ddd",
+    borderColor: '#ddd',
     borderRadius: 8,
     padding: 12,
     marginBottom: 15,
   },
   inputWithIcon: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     borderWidth: 1,
-    borderColor: "#ddd",
+    borderColor: '#ddd',
     borderRadius: 8,
     padding: 12,
     marginBottom: 15,
   },
   inputText: {
-    color: "#000",
+    color: '#000',
   },
   placeholder: {
-    color: "#999",
+    color: '#999',
   },
   dropdown: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     borderWidth: 1,
-    borderColor: "#ddd",
+    borderColor: '#ddd',
     borderRadius: 8,
     padding: 12,
     marginBottom: 20,
   },
   dropdownText: {
-    color: "#333",
+    color: '#333',
   },
   createButton: {
-    backgroundColor: "#FF6600",
+    backgroundColor: '#FF6600',
     padding: 15,
     borderRadius: 8,
-    alignItems: "center",
+    alignItems: 'center',
   },
   createText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
   },
   modalOverlay: {
     flex: 1,
-    justifyContent: "center",
-    backgroundColor: "rgba(0,0,0,0.3)",
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0,0,0,0.3)',
     paddingHorizontal: 20,
   },
   modalContent: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     borderRadius: 10,
     padding: 15,
     elevation: 5,
-    maxHeight: "80%",
+    maxHeight: '80%',
   },
   modalTitle: {
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
     marginBottom: 10,
   },
   option: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingVertical: 8,
   },
   optionText: {
     marginLeft: 10,
     fontSize: 16,
-    color: "#333",
+    color: '#333',
   },
   okButton: {
     marginTop: 15,
-    backgroundColor: "#FF6600",
+    backgroundColor: '#FF6600',
     paddingVertical: 12,
     borderRadius: 8,
-    alignItems: "center",
+    alignItems: 'center',
   },
   okText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 });
