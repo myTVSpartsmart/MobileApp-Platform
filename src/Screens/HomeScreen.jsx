@@ -81,7 +81,7 @@ const HomeScreen = () => {
  onPress: () => navigation.navigate("SearchCustomer"),
     },
     {
-      label: "View Receipt",
+      label: "Receipt",
       isImage: true,
       icon: Calender,
       width: 150,

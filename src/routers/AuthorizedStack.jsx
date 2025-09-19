@@ -23,6 +23,7 @@ import ProfileScreen from "../Screens/ProfileScreen";
 import SupportScreen from "../Screens/SupportScreen";
 import ChangePasswordScreen from "../Screens/ChangePasswordScreen";
 import DisplayInvoices from "../Screens/CreateReceiptModule/DisplayInvoices";
+import RepeatOn from "../Screens/BeatPlanModule/RepeatOn";
 import ViewReceiptScreen from '../Screens/ViewReceiptScreen';
 import ReceiptDetailsScreen from '../Screens/ReceiptDetailsScreen';
 
@@ -144,6 +145,11 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="PaymentMethod"
         component={PaymentMethod}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="RepeatOn"
+        component={RepeatOn}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
       <Stack.Screen
