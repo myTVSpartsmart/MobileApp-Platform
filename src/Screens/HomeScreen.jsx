@@ -78,7 +78,7 @@ const HomeScreen = () => {
       icon: createordericon,
       width: 90,
       height: 100,
-      onPress: () => {},
+ onPress: () => navigation.navigate("SearchCustomer"),
     },
     {
       label: "View Receipt",
@@ -86,7 +86,7 @@ const HomeScreen = () => {
       icon: Calender,
       width: 150,
       height: 400,
-      onPress: () => {},
+      onPress: () => navigation.navigate("ViewReceiptScreen"),
     },
     
   ];
@@ -322,8 +322,13 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     marginLeft: 20,
   },
-  attendanceContainer: { paddingHorizontal: 20, marginTop: 10 },
-  attendanceRow: { flexDirection: "row", alignItems: "center", marginBottom: 6 },
+  attendanceContainer: { paddingHorizontal: 20, },
+  attendanceRow: { flexDirection: "row", alignItems: "center", marginBottom: 6,   backgroundColor: "#fff",
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderRadius: 8,
+   borderRadius: 12,
+    elevation: 4, },
   attendanceText: {
     fontSize: 18,
     color: "#33436C",

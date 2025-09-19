@@ -7,12 +7,10 @@ import SearchCustomer from "../Screens/CreateOrderModule/SearchCustomer";
 import PaymentEntry from "../Screens/CreateReceiptModule/PaymentEntry"
 
 import LoginScreen from "../Screens/LoginScreen";
-import ChallanPayment from "../Screens/CreateReceiptModule/ChallanPayment"
 import PasswordVerification from "../Screens/PasswordVerification"
 import DisplayCustomer from "../Screens/CreateReceiptModule/DisplayCustomer";
 import ExcessAmount from "../Screens/CreateReceiptModule/ExcessAmount";
 import PaymentMethod from "../Screens/CreateReceiptModule/PaymentMethod"
-import CashPayment from "../Screens/CreateReceiptModule/CashPayment"
 import HomeScreen from "../Screens/HomeScreen";
 import ForgotPassword from "../Screens/ForgotPassword";
 import ViewHistoryScreen from "../Screens/ViewHistoryScreen";
@@ -25,6 +23,20 @@ import ProfileScreen from "../Screens/ProfileScreen";
 import SupportScreen from "../Screens/SupportScreen";
 import ChangePasswordScreen from "../Screens/ChangePasswordScreen";
 import DisplayInvoices from "../Screens/CreateReceiptModule/DisplayInvoices";
+import ViewReceiptScreen from '../Screens/ViewReceiptScreen';
+import ReceiptDetailsScreen from '../Screens/ReceiptDetailsScreen';
+
+
+import CreateOrderDetail from "../Screens/CreateOrderModule/CreateOrderDetail";
+import BrandsScreen from "../Screens/CreateOrderModule/BrandsScreen";
+import CategoryScreen from "../Screens/CreateOrderModule/CategoryScreen";
+import SubCategoryScreen from "../Screens/CreateOrderModule/SubCategoryScreen";
+import CreateOrderSuccess from "../Screens/CreateOrderModule/CreateOrderSuccess";
+import CreateOrderFailure from "../Screens/CreateOrderModule/CreateOrderFailure";
+import Confirmation from "../Screens/CreateOrderModule/Confirmation";
+import ProductList from "../Screens/CreateOrderModule/ProductList";
+import ReviewCart from "../Screens/CreateOrderModule/ReviewCart";
+
 
 const AuthorizedStack = () => {
   const Stack = createNativeStackNavigator();
@@ -67,16 +79,6 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="CashPayment"
-        component={CashPayment}
-        options={{ headerShown: false, animation: 'slide_from_right' }}
-      />
-      <Stack.Screen
-        name="ChallanPayment"
-        component={ChallanPayment}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
       <Stack.Screen
@@ -144,6 +146,62 @@ const AuthorizedStack = () => {
         component={PaymentMethod}
         options={{ headerShown: false, animation: 'slide_from_right' }}
       />
+      <Stack.Screen
+        name="ViewReceiptScreen"
+        component={ViewReceiptScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+       <Stack.Screen
+        name="ReceiptDetailsScreen"
+        component={ReceiptDetailsScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="CreateOrderDetail"
+        component={CreateOrderDetail}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="BrandsScreen"
+        component={BrandsScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+       <Stack.Screen
+        name="CategoryScreen"
+        component={CategoryScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+        <Stack.Screen
+        name="SubCategoryScreen"
+        component={SubCategoryScreen}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="CreateOrderSuccess"
+        component={CreateOrderSuccess}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+        <Stack.Screen
+        name="CreateOrderFailure"
+        component={CreateOrderFailure}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="Confirmation"
+        component={Confirmation}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+<Stack.Screen
+        name="ProductList"
+        component={ProductList}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="ReviewCart"
+        component={ReviewCart}
+        options={{ headerShown: false, animation: 'slide_from_right' }}
+      />
+       
     </Stack.Navigator>
   );
 };

@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { BACKARROWPNG_Image } from '../../Components/ImageManager';
 import StatusBarComponent from '../../Components/StatusBarComponent';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const SearchCustomer = ({ navigation }) => {
   const [searchText, setSearchText] = useState('');
@@ -60,6 +61,7 @@ const SearchCustomer = ({ navigation }) => {
 
   const handleCustomerSelect = (customer) => {
     console.log('Selected customer:', customer);
+    navigation.navigate("CreateOrderDetail")
   };
 
   const renderCustomerItem = ({ item }) => (
@@ -72,7 +74,9 @@ const SearchCustomer = ({ navigation }) => {
         <Text style={styles.customerCode}>{item.code}</Text>
       </View>
       <View style={styles.arrowContainer}>
-        <Text style={styles.arrow}>›</Text>
+        {/* <Text style={styles.arrow}>›</Text> */}
+        <MaterialCommunityIcons name="chevron-right" size={27} color="#364369" />
+
       </View>
     </TouchableOpacity>
   );
@@ -96,7 +100,7 @@ const SearchCustomer = ({ navigation }) => {
             <TextInput
               style={styles.searchInput}
               placeholder="Enter Customer Name/Code"
-              placeholderTextColor="#969CAA"
+              placeholderTextColor="#626262"
               value={searchText}
               onChangeText={setSearchText}
               onSubmitEditing={handleSearch}
@@ -127,6 +131,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+     paddingTop: 10,
   },
   headerContainer: {
     backgroundColor: '#FFFFFF',
@@ -135,8 +140,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
     paddingBottom: 18,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0',
+    // borderBottomWidth: 1,
+    // borderBottomColor: '#E0E0E0',
   },
   backArrow: {
     width: 24,
@@ -144,11 +149,11 @@ const styles = StyleSheet.create({
     tintColor: '#000000',
   },
   headerText: {
-    fontSize: 16,
+    fontSize: 18,
     marginLeft: 15,
-    color: '#000000',
+    color: '#263238',
     fontFamily: 'GilroySemiBold',
-    fontWeight: '600',
+    fontWeight: '800',
   },
   content: {
     flex: 1,
@@ -167,13 +172,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderColor: '#E0E0E0',
     borderWidth: 1,
-    borderRadius: 8,
+    borderRadius: 6,
     paddingHorizontal: 16,
     paddingVertical: 12,
     color: '#000000',
     fontFamily: 'GilroySemiBold',
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   searchButton: {
     backgroundColor: '#FF6B35',
@@ -185,24 +190,24 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontFamily: 'GilroySemiBold',
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   recentSearchContainer: {
     marginTop: 24,
     flex: 1,
   },
   recentSearchTitle: {
-    color: '#000000',
+    color: '#364369',
     fontFamily: 'GilroySemiBold',
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
     marginBottom: 16,
   },
   listContainer: {
     paddingBottom: 20,
   },
   customerItem: {
-    backgroundColor: '#F8F8F8',
+    backgroundColor: '#FFFFFF',
     borderColor: '#E0E0E0',
     borderWidth: 1,
     borderRadius: 8,
@@ -210,24 +215,24 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     marginBottom: 12,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'space-between',
   },
   customerInfo: {
     flex: 1,
   },
   customerName: {
-    color: '#000000',
+    color: 'black',
     fontFamily: 'GilroySemiBold',
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
     marginBottom: 4,
   },
   customerCode: {
-    color: '#666666',
+    color: '#414548',
     fontFamily: 'GilroyMedium',
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: '700',
   },
   arrowContainer: {
     marginLeft: 12,

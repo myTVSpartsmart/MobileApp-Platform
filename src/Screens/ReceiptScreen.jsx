@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Svg, { Path } from 'react-native-svg';
-import HeaderIcons from '../Components/HeaderIcons'; // Adjust path as needed
+import HeaderIcons from '../Components/HeaderIcons';
 import DueToday from '../assets/images/DueToday.png';
 import CreateReceipt from '../assets/images/CreateReceipt.png';
 import ViewReceipt from '../assets/images/ViewReceipt.png';
@@ -69,12 +69,6 @@ const receiptData = [
 ];
 
 const ReceiptScreen = ({ navigation }) => {
-  // Get today's date and format as dd/mm/yyyy
-  const today = new Date();
-  const formattedToday = `${String(today.getDate()).padStart(2, '0')}/${String(
-    today.getMonth() + 1,
-  ).padStart(2, '0')}/${today.getFullYear()}`;
-
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
@@ -88,9 +82,9 @@ const ReceiptScreen = ({ navigation }) => {
           <Text style={styles.headerTitle}>Receipt</Text>
         </View>
         <HeaderIcons
-          onCartPress={() => {}}
-          onProfilePress={() => {}}
-          colors="black"
+          onCartPress={() => alert('Cart clicked')}
+          onProfilePress={() => navigation.navigate('ProfileScreen')}
+          colors="Black"
         />
       </View>
 
@@ -123,22 +117,26 @@ const ReceiptScreen = ({ navigation }) => {
       {/* Action Buttons */}
       <View style={styles.actionsRow}>
         {[
-          { icon: DueToday, label: 'DUE TODAY' },
-          { icon: CreateReceipt, label: 'CREATE RECEIPT' },
-          { icon: ViewReceipt, label: 'VIEW RECEIPT' },
+          {
+            icon: DueToday,
+            label: 'DUE TODAY',
+            onPress: () => console.log('Due Today Pressed'),
+          },
+          {
+            icon: CreateReceipt,
+            label: 'CREATE RECEIPT',
+            onPress: () => navigation.navigate('CustomerSearch'),
+          },
+          {
+            icon: ViewReceipt,
+            label: 'VIEW RECEIPT',
+            onPress: () => navigation.navigate('ViewReceiptScreen'),
+          },
         ].map((btn, idx) => (
           <TouchableOpacity
             key={idx}
             style={styles.actionButton}
-            onPress={() => {
-              if (btn.label === 'CREATE RECEIPT') {
-                navigation.navigate('CustomerSearch'); // 👈 Navigate to CreateReceipt Page
-              } else if (btn.label === 'VIEW RECEIPT') {
-                // navigation.navigate('ViewReceipt'); // Optional: handle other cases
-              } else if (btn.label === 'DUE TODAY') {
-                // navigation.navigate('DueToday'); // Optional
-              }
-            }}
+            onPress={btn.onPress}
           >
             <View style={styles.circle}>
               <Image
@@ -307,7 +305,6 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   paymentButton: {
-    marginRight: '-13',
     backgroundColor: '#f18d42',
     paddingHorizontal: 10,
     paddingVertical: 6,

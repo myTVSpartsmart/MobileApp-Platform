@@ -56,6 +56,17 @@ import Visitplan from "../assets/images/Visitplan.png";
 import ViewPlan from "../assets/images/ViewPlan.png";
 
 import Profileimg from "../assets/images/Profileimg.png";
+import Cheque from "../assets/images/Cheque.png";
+import DD from "../assets/images/DD.png";
+import Challan from "../assets/images/Challan.png";
+import HotList from "../assets/images/HotList.png";
+import CreateOrder from "../assets/images/CreateOrder.png";
+import ViewHistory from '../assets/images/ViewHistory.png'; 
+
+import Subtract from "../assets/images/Subtract.png";
+import Tvslogo from "../assets/images/Tvslogo.png";
+import AlarmPNG_Image from "../assets/images/alarm.png";
+import BrakeShoePNG_Image from "../assets/images/brakeshoe.png";
 export {
   Login_Bg,
   Mi_Image,
@@ -105,7 +116,10 @@ export {
   QuickMenuBackground,
   ViewHistoryIcon,
   Calender,DueToday,CreateReceipt,ViewReceipt
-  ,createordericon,Visitplan,ViewPlan,NewPlan,Profileimg
-
+  ,createordericon,Visitplan,ViewPlan,NewPlan,Profileimg,Challan,Cheque,DD,HotList
+,CreateOrder,ViewHistory,Subtract,
+  Tvslogo,
+  AlarmPNG_Image,
+  BrakeShoePNG_Image
 };
 
