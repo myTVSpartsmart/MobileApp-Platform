@@ -1,49 +1,43 @@
+// Screens/SalesScreen.js
 import React from 'react';
 import {
   View,
   Text,
-  StyleSheet,
-  FlatList,
+  SafeAreaView,
   TouchableOpacity,
+  FlatList,
+  StyleSheet,
+  StatusBar,
   Dimensions,
   Platform,
-  StatusBar,
-  SafeAreaView,
+  Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Svg, { Path } from 'react-native-svg';
-import HeaderIcons from '../Components/HeaderIcons'; 
+import { useNavigation } from '@react-navigation/native';
+import HeaderIcons from '../Components/HeaderIcons';
+
+// Images
+import HotList from '../assets/images/HotList.png';
+import CreateOrder from '../assets/images/CreateOrder.png';
+import ViewHistory from '../assets/images/ViewHistory.png';
+
 const { width } = Dimensions.get('window');
 
 const salesData = [
-  {
-    id: 'daily',
-    title: 'Daily Sales',
-    amount: '₹3,750',
-    target: '₹5,000',
-    graphPath: 'M0 20 Q10 10 20 15 T40 10 T60 20 T80 15 T100 20',
-  },
-  {
-    id: 'weekly',
-    title: 'Weekly Sales',
-    amount: '₹30,750',
-    target: '₹30,000',
-    graphPath: 'M0 15 Q10 20 20 12 T40 15 T60 10 T80 15 T100 12',
-  },
-  {
-    id: 'monthly',
-    title: 'Monthly Sales',
-    amount: '₹1,30,550',
-    target: '₹1,50,000',
-    graphPath: 'M0 20 Q10 18 20 22 T40 18 T60 20 T80 16 T100 18',
-  },
+  { id: 'daily', title: 'Daily Sales', amount: '₹3,750', target: '₹5,000',
+    graphPath: 'M0 20 Q10 10 20 15 T40 10 T60 20 T80 15 T100 20' },
+  { id: 'weekly', title: 'Weekly Sales', amount: '₹30,750', target: '₹30,000',
+    graphPath: 'M0 15 Q10 20 20 12 T40 15 T60 10 T80 15 T100 12' },
+  { id: 'monthly', title: 'Monthly Sales', amount: '₹1,30,550', target: '₹1,50,000',
+    graphPath: 'M0 20 Q10 18 20 22 T40 18 T60 20 T80 16 T100 18' },
 ];
 
 const actions = [
-  { id: 'hotlist', label: 'HOT LIST', icon: 'layers-outline' },
-  { id: 'createorder', label: 'CREATE ORDER', icon: 'pencil-outline' },
-  { id: 'viewhistory', label: 'VIEW HISTORY', icon: 'receipt' },
+  { id: 'hotlist', label: 'HOT LIST', image: HotList },
+  { id: 'createorder', label: 'CREATE ORDER', image: CreateOrder },
+  { id: 'viewhistory', label: 'VIEW HISTORY', image: ViewHistory },
 ];
 
 const customers = [
@@ -54,93 +48,103 @@ const customers = [
   { id: '5', name: 'Wealth MOTORS Accessories', code: 'PSW_000396' },
 ];
 
-
 const parseAmount = (amountStr) => parseFloat(amountStr.replace(/[₹,]/g, ''));
 
+const SalesScreen = () => {
+  const navigation = useNavigation();
 
-const Header = () => (
-  <View style={[styles.header , {justifyContent:'space-between'}]}>
-    <View style={{flexDirection:'row'}}>
-    <TouchableOpacity>
-      <Icon name="menu-outline" size={28} color="#000" />
+  /* ---------- Sales Card ---------- */
+  const SalesCard = ({ item }) => {
+    const amountValue = parseAmount(item.amount);
+    const targetValue = parseAmount(item.target);
+    const isTargetMet = amountValue >= targetValue;
+    const color = isTargetMet ? '#5cb85c' : '#DD0606';
+
+    return (
+      <View style={styles.cardWrapper}>
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>{item.title}</Text>
+          <Text style={[styles.cardAmount, { color }]}>{item.amount}</Text>
+          <Text style={styles.cardTarget}>Target</Text>
+          <Text style={styles.cardTargetValue}>{item.target}</Text>
+          <Svg width={100} height={40} viewBox="0 0 100 30" style={{ marginTop: 4 }}>
+            <Path
+              d={item.graphPath}
+              stroke={color}
+              strokeWidth={3}
+              fill="none"
+              strokeLinecap="round"
+            />
+          </Svg>
+        </View>
+      </View>
+    );
+  };
+
+  /* ---------- Action Button ---------- */
+  const ActionButton = ({ item }) => (
+    <TouchableOpacity
+      style={styles.actionButton}
+      activeOpacity={0.7}
+      onPress={() => {
+        if (item.id === 'hotlist') {
+          // navigation.navigate('HotlistScreen');
+        } else if (item.id === 'createorder') {
+          navigation.navigate('SearchCustomer'); 
+        } else if (item.id === 'viewhistory') {
+          navigation.navigate('ViewHistoryScreen');
+        }
+      }}
+    >
+      <Image source={item.image} style={styles.actionImage} resizeMode="contain" />
+      <Text style={styles.actionLabel}>{item.label}</Text>
     </TouchableOpacity>
+  );
 
-    <Text style={styles.headerTitle}>Sales</Text>
-
-    </View>
-    <View>
-    <HeaderIcons 
-      onCartPress={() => alert("Cart clicked")}
-      onProfilePress={() => alert("Profile clicked")}
-      colors='black'
-    />
-    </View>
-    
-  </View>
-);
-
-
-const SalesCard = ({ item }) => {
-  const amountValue = parseAmount(item.amount);
-  const targetValue = parseAmount(item.target);
-  const isTargetMet = amountValue >= targetValue;
-  const color = isTargetMet ? '#5cb85c' : '#DD0606'; 
-
-  return (
-    <View style={styles.cardWrapper}>
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>{item.title}</Text>
-        <Text style={[styles.cardAmount, { color }]}>{item.amount}</Text>
-        <Text style={styles.cardTarget}>Target</Text>
-        <Text style={styles.cardTargetValue}>{item.target}</Text>
-        <Svg width={100} height={40} viewBox="0 0 100 30" style={{ marginTop: 4 }}>
-          <Path
-            d={item.graphPath}
-            stroke={color}
-            strokeWidth={3}
-            fill="none"
-            strokeLinecap="round"
-          />
-        </Svg>
+  /* ---------- Customer Row ---------- */
+  const CustomerRow = ({ item, index }) => (
+    <View style={styles.customerRow}>
+      <View style={styles.rankCircle}>
+        <Text style={styles.customerRank}>{index + 1}</Text>
+      </View>
+      <View style={styles.customerInfo}>
+        <Text style={styles.customerName}>{item.name}</Text>
+        <Text style={styles.customerCode}>{item.code}</Text>
       </View>
     </View>
   );
-};
 
-const ActionButton = ({ item }) => (
-  <TouchableOpacity style={styles.actionButton} activeOpacity={0.7}>
-    <MaterialCommunityIcons name={item.icon} size={48} color="#f18d42" />
-    <Text style={styles.actionLabel}>{item.label}</Text>
-  </TouchableOpacity>
-);
-
-const CustomerRow = ({ item, index }) => (
-  <View style={styles.customerRow}>
-    <View style={styles.rankCircle}>
-      <Text style={styles.customerRank}>{index + 1}</Text>
-    </View>
-    <View style={styles.customerInfo}>
-      <Text style={styles.customerName}>{item.name}</Text>
-      <Text style={styles.customerCode}>{item.code}</Text>
-    </View>
-  </View>
-);
-
-export default function SalesScreen() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      <Header />
+      {/* Header */}
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => navigation.navigate("ProfileScreen")}>
+          <Icon name="menu-outline" size={28} color="#000" />
+        </TouchableOpacity>
+        <Text style={styles.headerTitle}>Sales</Text>
+        <HeaderIcons
+          onCartPress={() => alert("Cart clicked")}
+          onProfilePress={() => navigation.navigate("ProfileScreen")}
+          colors="black"
+        />
+      </View>
+
+      {/* Sales Cards */}
       <View style={styles.cardsContainer}>
         {salesData.map((item) => (
           <SalesCard key={item.id} item={item} />
         ))}
       </View>
+
+      {/* Actions */}
       <View style={styles.actionsContainer}>
         {actions.map((item) => (
           <ActionButton key={item.id} item={item} />
         ))}
       </View>
+
+      {/* Top Customers */}
       <Text style={styles.topCustomersTitle}>Top 5 Customers</Text>
       <FlatList
         data={customers}
@@ -150,8 +154,11 @@ export default function SalesScreen() {
       />
     </SafeAreaView>
   );
-}
+};
 
+export default SalesScreen;
+
+/* ---------- Styles ---------- */
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
@@ -159,17 +166,21 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   header: {
-    height: 56,
-    paddingHorizontal: 16,
     flexDirection: 'row',
+    paddingHorizontal: 16,
+    paddingTop: 16,
     alignItems: 'center',
+    justifyContent: 'space-between',
+    height: 56,
     borderBottomWidth: 0.8,
     borderBottomColor: '#ccc',
   },
   headerTitle: {
     fontSize: 18,
     fontWeight: '700',
-    marginLeft:'10'
+    color: '#000',
+    marginLeft: 10,
+    flex: 1,
   },
   cardsContainer: {
     flexDirection: 'row',
@@ -189,9 +200,6 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 12,
     width: (width - 56) / 3,
-  },
-  card: {
-    backgroundColor: '#fff',
   },
   cardTitle: {
     fontSize: 11,
@@ -217,18 +225,21 @@ const styles = StyleSheet.create({
   actionsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginHorizontal: 16,
+    marginHorizontal: 10,
     marginBottom: 24,
   },
   actionButton: {
     alignItems: 'center',
-    width: 90,
+  },
+  actionImage: {
+    width: 60,
+    height: 60,
   },
   actionLabel: {
-    marginTop: 8,
+    marginTop: 10,
     fontWeight: '600',
     fontSize: 12,
-    color: '#555',
+    color: '#333',
   },
   topCustomersTitle: {
     fontWeight: '700',
@@ -260,9 +271,8 @@ const styles = StyleSheet.create({
   },
   customerRank: {
     fontWeight: '700',
-    fontSize: 25,
+    fontSize: 14, // ✅ fixed from 25
     color: '#24358D',
-    alignSelf: 'center',
   },
   customerInfo: {
     flex: 1,

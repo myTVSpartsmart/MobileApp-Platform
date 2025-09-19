@@ -13,10 +13,12 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Svg, { Path } from 'react-native-svg';
+import { useNavigation } from '@react-navigation/native';
 import NewPlan from "../assets/images/NewPlan.png";
 import Visitplan from "../assets/images/Visitplan.png";
 import ViewPlan from "../assets/images/ViewPlan.png";
 import HeaderIcons from '../Components/HeaderIcons';
+
 const { width } = Dimensions.get('window');
 
 const beatSummary = [
@@ -26,9 +28,9 @@ const beatSummary = [
 ];
 
 const beatActions = [
-  { id: '1', label: 'New Plan', icon: NewPlan },
-  { id: '2', label: 'View Plan', icon: ViewPlan },
-  { id: '3', label: 'Visit Plan', icon: Visitplan },
+  { id: '1', label: 'New Plan', icon: NewPlan, screen: 'NewPlanScreen' },
+  { id: '2', label: 'View Plan', icon: ViewPlan, screen: 'ViewPlanScreen' },
+  { id: '3', label: 'Visit Plan', icon: Visitplan, screen: 'VisitPlanScreen' },
 ];
 
 const today = new Date();
@@ -41,6 +43,8 @@ const storeList = Array(4).fill({
 });
 
 const BeatScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
@@ -48,12 +52,16 @@ const BeatScreen = () => {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.openDrawer?.()}>
             <Icon name="menu-outline" size={28} color="#000" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Beat</Text>
         </View>
-        <HeaderIcons onCartPress={() => { }} onProfilePress={() => { }} colors="black" />
+        <HeaderIcons
+          onCartPress={() => navigation.navigate("CartScreen")}
+          onProfilePress={() => navigation.navigate("ProfileScreen")}
+          colors="black"
+        />
       </View>
 
       {/* Summary Cards */}
@@ -77,7 +85,11 @@ const BeatScreen = () => {
       {/* Action Buttons */}
       <View style={styles.actionsRow}>
         {beatActions.map((action) => (
-          <TouchableOpacity key={action.id} style={styles.actionButton}>
+          <TouchableOpacity
+            key={action.id}
+            style={styles.actionButton}
+            onPress={() => navigation.navigate(action.screen)}
+          >
             <View style={styles.circle}>
               <Image source={action.icon} style={styles.iconImage} resizeMode="contain" />
             </View>
@@ -105,9 +117,6 @@ const BeatScreen = () => {
           </View>
         )}
       />
-
-
-
     </SafeAreaView>
   );
 };
@@ -115,7 +124,11 @@ const BeatScreen = () => {
 export default BeatScreen;
 
 const styles = StyleSheet.create({
-  safeArea: { flex: 1, backgroundColor: '#fff', paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0 },
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -126,7 +139,6 @@ const styles = StyleSheet.create({
   },
   headerLeft: { flexDirection: 'row', alignItems: 'center' },
   headerTitle: { fontSize: 18, fontWeight: '700', color: '#000', marginLeft: 12 },
-  headerIcons: { flexDirection: 'row', alignItems: 'center' },
 
   cardContainer: { flexDirection: 'row', justifyContent: 'space-around', marginVertical: 16 },
   card: {
@@ -147,11 +159,25 @@ const styles = StyleSheet.create({
 
   actionsRow: { flexDirection: 'row', justifyContent: 'space-around', marginBottom: 10 },
   actionButton: { alignItems: 'center' },
-  circle: { marginTop: 12, width: 60, height: 60, borderRadius: 30, backgroundColor: '#f8f8f8', justifyContent: 'center', alignItems: 'center' },
+  circle: {
+    marginTop: 12,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: '#f8f8f8',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   iconImage: { width: 60, height: 60 },
   actionLabel: { marginTop: 12, fontSize: 12, fontWeight: '600', color: '#333' },
 
-  todayPlan: { marginTop: 14, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 16, marginTop: 10, marginBottom: 5 },
+  todayPlan: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    marginTop: 10,
+    marginBottom: 5,
+  },
   todayTitle: { fontSize: 15, fontWeight: '600', color: '#24358D' },
   todayDate: { fontSize: 14, fontWeight: '600', color: '#24358D' },
 
@@ -170,19 +196,4 @@ const styles = StyleSheet.create({
   storeName: { fontSize: 14, fontWeight: '700', color: '#000' },
   storePhone: { fontSize: 13, fontWeight: '500', marginTop: 6, color: '#000' },
   storeAddress: { fontSize: 13, fontWeight: '500', marginTop: 6, color: '#000' },
-
-  bottomNav: {
-    position: 'absolute',
-    bottom: 0,
-    flexDirection: 'row',
-    height: 60,
-    borderTopColor: '#eee',
-    borderTopWidth: 1,
-    backgroundColor: '#fff',
-    width: '100%',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  navItem: { alignItems: 'center' },
-  navLabel: { fontSize: 10, marginTop: 4, color: '#888' },
 });

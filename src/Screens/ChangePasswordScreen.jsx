@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     label: { fontSize: 15, fontWeight: "600", color: "#000", marginBottom: 8 },
 
     input: {
-        backgroundColor: "#F5F5F5",
+        backgroundColor: "#F7F6F2",
         padding: 12,
         borderRadius: 8,
         fontSize: 15,
